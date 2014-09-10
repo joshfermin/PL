@@ -1,0 +1,459 @@
+setting 'ivy.default.settings.dir' to 'jar:file:/Users/josh/Documents/Computer%20Science/PL/lab1/koans/sbt-launch.jar!/org/apache/ivy/core/settings'
+setting 'ivy.basedir' to '/Users/josh/Documents/Computer Science/PL/lab1/koans/.'
+setting 'ivy.default.conf.dir' to 'jar:file:/Users/josh/Documents/Computer%20Science/PL/lab1/koans/sbt-launch.jar!/org/apache/ivy/core/settings'
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.SshResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.VsftpResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.version.PatternVersionMatcher in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.trigger.LogTrigger in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.ant.AntBuildTrigger in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.IvyRepResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.signer.bouncycastle.OpenPGPSignatureGenerator in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.conflict.RegexpConflictManager in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.SFTPResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.osgi.updatesite.UpdateSiteResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.ant.AntCallTrigger in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.MirroredURLResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.packager.PackagerResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.DualResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.VfsResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.JarResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.osgi.obr.OBRResolver in [] nor Ivy classloader
+impossible to define glob matcher: org.apache.ivy.plugins.matcher.GlobPatternMatcher was not found.
+setting 'sbt.ivy.home' to './ivyrepo'
+setting 'java.runtime.name' to 'Java(TM) SE Runtime Environment'
+setting 'sun.boot.library.path' to '/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries'
+setting 'java.vm.version' to '20.65-b04-462'
+setting 'awt.nativeDoubleBuffering' to 'true'
+setting 'gopherProxySet' to 'false'
+setting 'mrj.build' to '11M4609'
+setting 'java.vm.vendor' to 'Apple Inc.'
+setting 'java.vendor.url' to 'http://www.apple.com/'
+setting 'path.separator' to ':'
+setting 'java.vm.name' to 'Java HotSpot(TM) 64-Bit Server VM'
+setting 'file.encoding.pkg' to 'sun.io'
+setting 'sun.java.launcher' to 'SUN_STANDARD'
+setting 'user.country' to 'US'
+setting 'sun.os.patch.level' to 'unknown'
+setting 'java.vm.specification.name' to 'Java Virtual Machine Specification'
+setting 'user.dir' to '/Users/josh/Documents/Computer Science/PL/lab1/koans'
+setting 'java.runtime.version' to '1.6.0_65-b14-462-11M4609'
+setting 'java.awt.graphicsenv' to 'apple.awt.CGraphicsEnvironment'
+setting 'java.endorsed.dirs' to '/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed'
+setting 'os.arch' to 'x86_64'
+setting 'java.io.tmpdir' to '/var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/'
+setting 'line.separator' to '
+'
+setting 'java.vm.specification.vendor' to 'Sun Microsystems Inc.'
+setting 'os.name' to 'Mac OS X'
+setting 'sun.jnu.encoding' to 'MacRoman'
+setting 'java.library.path' to '.:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java'
+setting 'java.specification.name' to 'Java Platform API Specification'
+setting 'java.class.version' to '50.0'
+setting 'sun.management.compiler' to 'HotSpot 64-Bit Tiered Compilers'
+setting 'os.version' to '10.9.4'
+setting 'http.nonProxyHosts' to 'local|*.local|169.254/16|*.169.254/16'
+setting 'user.home' to '/Users/josh'
+setting 'user.timezone' to 'America/Denver'
+setting 'java.awt.printerjob' to 'apple.awt.CPrinterJob'
+setting 'file.encoding' to 'UTF8'
+setting 'java.specification.version' to '1.6'
+setting 'java.class.path' to './sbt-launch.jar'
+setting 'user.name' to 'josh'
+setting 'java.vm.specification.version' to '1.0'
+setting 'sun.java.command' to './sbt-launch.jar'
+setting 'java.home' to '/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home'
+setting 'sun.arch.data.model' to '64'
+setting 'user.language' to 'en'
+setting 'java.specification.vendor' to 'Sun Microsystems Inc.'
+setting 'awt.toolkit' to 'apple.awt.CToolkit'
+setting 'java.vm.info' to 'mixed mode'
+setting 'java.version' to '1.6.0_65'
+setting 'java.ext.dirs' to '/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext'
+setting 'sun.boot.class.path' to '/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsfd.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/laf.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/sunrsasign.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar'
+setting 'java.vendor' to 'Apple Inc.'
+setting 'file.separator' to '/'
+setting 'java.vendor.url.bug' to 'http://bugreport.apple.com/'
+setting 'sun.io.unicode.encoding' to 'UnicodeLittle'
+setting 'sun.cpu.endian' to 'little'
+setting 'mrj.version' to '1070.1.6.0_65-462'
+setting 'sbt.boot.directory' to './sbtboot'
+setting 'socksNonProxyHosts' to 'local|*.local|169.254/16|*.169.254/16'
+setting 'ftp.nonProxyHosts' to 'local|*.local|169.254/16|*.169.254/16'
+setting 'sun.cpu.isalist' to ''
+setting 'ivy.default.ivy.user.dir' to '/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo'
+setting 'ivy.home' to '/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo'
+setting 'ivy.cache.dir' to '/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache'
+no default cache defined: set to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache
+setting 'ivy.checksums' to 'sha1,md5'
+setting 'ivy.basedir' to '/Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot'
+setting 'basedir' to '/Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot'
+setting 'scala' to '2.10.2'
+:: resolving dependencies :: org.scala-sbt#boot-scala;1.0
+	confs: [default]
+	validate = true
+	refresh = false
+resolving dependencies for configuration 'default'
+== resolving dependencies for org.scala-sbt#boot-scala;1.0 [default]
+loadData of org.scala-sbt#boot-scala;1.0 of rootConf=default
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.2 [default->default]
+loadData of org.scala-lang#scala-compiler;2.10.2 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-compiler;2.10.2
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-compiler;2.10.2 {default=[default, optional(default)]}
+redefined-public: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-compiler/ivy-2.10.2.xml
+redefined-public: no latest strategy defined: using default
+local: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-compiler/ivy-2.10.2.xml
+	 trying /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+		tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#scala-compiler;2.10.2: res=/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+	local: no ivy file found for org.scala-lang#scala-compiler;2.10.2
+typesafe-ivy-releases: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-compiler/ivy-2.10.2.xml
+	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+HTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+CLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+	typesafe-ivy-releases: resource not reachable for org.scala-lang#scala-compiler;2.10.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/ivys/ivy.xml
+	typesafe-ivy-releases: no ivy file found for org.scala-lang#scala-compiler;2.10.2
+Maven Central: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-compiler/ivy-2.10.2.xml
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+	Maven Central: found md file for org.scala-lang#scala-compiler;2.10.2
+		=> http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom (2.10.2)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#scala-compiler;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-compiler/ivy-2.10.2.xml
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-compiler/ivy-2.10.2.xml.original.part
+sha1 file found for http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom: checking...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom.sha1
+		to /var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/ivytmp2671456676111779007sha1
+sha1 OK for http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.10.2!scala-compiler.pom(pom.original) (230ms)
+	 trying /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+		tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.10.2: res=/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+HTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+CLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+	typesafe-ivy-releases: resource not reachable for org.scala-lang#scala-compiler;2.10.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-compiler/2.10.2/jars/scala-compiler.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+no source artifact found for org.scala-lang#scala-compiler;2.10.2
+no javadoc artifact found for org.scala-lang#scala-compiler;2.10.2
+	default-cache: parsed downloaded md file for org.scala-lang#scala-compiler;2.10.2; parsed=org.scala-lang#scala-compiler;2.10.2
+	checking org.scala-lang#scala-compiler;2.10.2 from Maven Central against [none]
+	module revision kept as first found: org.scala-lang#scala-compiler;2.10.2 from Maven Central
+	found org.scala-lang#scala-compiler;2.10.2 in Maven Central
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.2 [default->runtime]
+loadData of org.scala-lang#scala-compiler;2.10.2 of rootConf=default
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.2 [default->compile]
+loadData of org.scala-lang#scala-compiler;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->master(*)]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-library;2.10.2
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-library;2.10.2 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+	no ivy file in cache for org.scala-lang#scala-library;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-library/ivy-2.10.2.xml
+	no ivy file in cache for org.scala-lang#scala-library;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-library/ivy-2.10.2.xml
+	 trying /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+		tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#scala-library;2.10.2: res=/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+	local: no ivy file found for org.scala-lang#scala-library;2.10.2
+	no ivy file in cache for org.scala-lang#scala-library;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-library/ivy-2.10.2.xml
+	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+HTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+CLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+	typesafe-ivy-releases: resource not reachable for org.scala-lang#scala-library;2.10.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/ivys/ivy.xml
+	typesafe-ivy-releases: no ivy file found for org.scala-lang#scala-library;2.10.2
+	no ivy file in cache for org.scala-lang#scala-library;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-library/ivy-2.10.2.xml
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+	Maven Central: found md file for org.scala-lang#scala-library;2.10.2
+		=> http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom (2.10.2)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#scala-library;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-library/ivy-2.10.2.xml
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-library/ivy-2.10.2.xml.original.part
+sha1 file found for http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom: checking...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom.sha1
+		to /var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/ivytmp4385688159841907508sha1
+sha1 OK for http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+	[SUCCESSFUL ] org.scala-lang#scala-library;2.10.2!scala-library.pom(pom.original) (278ms)
+	 trying /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+		tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.10.2: res=/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+HTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+CLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+	typesafe-ivy-releases: resource not reachable for org.scala-lang#scala-library;2.10.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-library/2.10.2/jars/scala-library.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+no source artifact found for org.scala-lang#scala-library;2.10.2
+no javadoc artifact found for org.scala-lang#scala-library;2.10.2
+	default-cache: parsed downloaded md file for org.scala-lang#scala-library;2.10.2; parsed=org.scala-lang#scala-library;2.10.2
+	checking org.scala-lang#scala-library;2.10.2 from Maven Central against [none]
+	module revision kept as first found: org.scala-lang#scala-library;2.10.2 from Maven Central
+	found org.scala-lang#scala-library;2.10.2 in Maven Central
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->compile(*)]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->default]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->runtime]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->compile]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->master]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [compile->master(*)]
+loadData of org.scala-lang#scala-reflect;2.10.2 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-reflect;2.10.2
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-reflect;2.10.2 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+	no ivy file in cache for org.scala-lang#scala-reflect;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-reflect/ivy-2.10.2.xml
+	no ivy file in cache for org.scala-lang#scala-reflect;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-reflect/ivy-2.10.2.xml
+	 trying /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+		tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#scala-reflect;2.10.2: res=/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+	local: no ivy file found for org.scala-lang#scala-reflect;2.10.2
+	no ivy file in cache for org.scala-lang#scala-reflect;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-reflect/ivy-2.10.2.xml
+	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+HTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+CLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+	typesafe-ivy-releases: resource not reachable for org.scala-lang#scala-reflect;2.10.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/ivys/ivy.xml
+	typesafe-ivy-releases: no ivy file found for org.scala-lang#scala-reflect;2.10.2
+	no ivy file in cache for org.scala-lang#scala-reflect;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-reflect/ivy-2.10.2.xml
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+	Maven Central: found md file for org.scala-lang#scala-reflect;2.10.2
+		=> http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom (2.10.2)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#scala-reflect;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-reflect/ivy-2.10.2.xml
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-reflect/ivy-2.10.2.xml.original.part
+sha1 file found for http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom: checking...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom.sha1
+		to /var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/ivytmp988052895715721524sha1
+sha1 OK for http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+	[SUCCESSFUL ] org.scala-lang#scala-reflect;2.10.2!scala-reflect.pom(pom.original) (227ms)
+	 trying /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+		tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+	local: resource not reachable for org.scala-lang#scala-reflect;2.10.2: res=/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+HTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+CLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+	typesafe-ivy-releases: resource not reachable for org.scala-lang#scala-reflect;2.10.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/scala-reflect/2.10.2/jars/scala-reflect.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+no source artifact found for org.scala-lang#scala-reflect;2.10.2
+no javadoc artifact found for org.scala-lang#scala-reflect;2.10.2
+	default-cache: parsed downloaded md file for org.scala-lang#scala-reflect;2.10.2; parsed=org.scala-lang#scala-reflect;2.10.2
+	checking org.scala-lang#scala-reflect;2.10.2 from Maven Central against [none]
+	module revision kept as first found: org.scala-lang#scala-reflect;2.10.2 from Maven Central
+	found org.scala-lang#scala-reflect;2.10.2 in Maven Central
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [compile->compile(*)]
+loadData of org.scala-lang#scala-reflect;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-reflect;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->master(*)]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-reflect;2.10.2->org.scala-lang#scala-library;2.10.2 [compile->compile(*)]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [runtime->runtime(*)]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-library;2.10.2 [runtime->compile]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [runtime->runtime(*)]
+loadData of org.scala-lang#scala-reflect;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#scala-reflect;2.10.2 [runtime->compile]
+loadData of org.scala-lang#scala-reflect;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-reflect;2.10.2->org.scala-lang#scala-library;2.10.2 [runtime->runtime(*)]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-lang#scala-reflect;2.10.2->org.scala-lang#scala-library;2.10.2 [runtime->compile]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.2 [default->master]
+loadData of org.scala-lang#scala-compiler;2.10.2 of rootConf=default
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.10.2 [default->optional(default)]
+loadData of org.scala-lang#scala-compiler;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#jline;2.10.2 [optional->master(*)]
+loadData of org.scala-lang#jline;2.10.2 of rootConf=default
+	using redefined-public to resolve org.scala-lang#jline;2.10.2
+redefined-public: Checking cache for: dependency: org.scala-lang#jline;2.10.2 {optional=[compile(*), master(*)]}
+	no ivy file in cache for org.scala-lang#jline;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/jline/ivy-2.10.2.xml
+	no ivy file in cache for org.scala-lang#jline;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/jline/ivy-2.10.2.xml
+	 trying /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+		tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#jline;2.10.2: res=/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+	local: no ivy file found for org.scala-lang#jline;2.10.2
+	no ivy file in cache for org.scala-lang#jline;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/jline/ivy-2.10.2.xml
+	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+HTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+CLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+	typesafe-ivy-releases: resource not reachable for org.scala-lang#jline;2.10.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/ivys/ivy.xml
+	typesafe-ivy-releases: no ivy file found for org.scala-lang#jline;2.10.2
+	no ivy file in cache for org.scala-lang#jline;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/jline/ivy-2.10.2.xml
+	 trying http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom
+		tried http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom
+	Maven Central: found md file for org.scala-lang#jline;2.10.2
+		=> http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom (2.10.2)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#jline;2.10.2: tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/jline/ivy-2.10.2.xml
+downloading http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/jline/ivy-2.10.2.xml.original.part
+sha1 file found for http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom: checking...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom.sha1
+		to /var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/ivytmp7915947633733178158sha1
+sha1 OK for http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.pom
+	[SUCCESSFUL ] org.scala-lang#jline;2.10.2!jline.pom(pom.original) (230ms)
+	 trying /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/jline/2.10.2/jars/jline.jar
+		tried /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/jline/2.10.2/jars/jline.jar
+	local: resource not reachable for org.scala-lang#jline;2.10.2: res=/Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/local/org.scala-lang/jline/2.10.2/jars/jline.jar
+	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/jars/jline.jar
+		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/jars/jline.jar
+HTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/jars/jline.jar
+CLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/jars/jline.jar
+	typesafe-ivy-releases: resource not reachable for org.scala-lang#jline;2.10.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scala-lang/jline/2.10.2/jars/jline.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+no source artifact found for org.scala-lang#jline;2.10.2
+no javadoc artifact found for org.scala-lang#jline;2.10.2
+	default-cache: parsed downloaded md file for org.scala-lang#jline;2.10.2; parsed=org.scala-lang#jline;2.10.2
+	checking org.scala-lang#jline;2.10.2 from Maven Central against [none]
+	module revision kept as first found: org.scala-lang#jline;2.10.2 from Maven Central
+	found org.scala-lang#jline;2.10.2 in Maven Central
+== resolving dependencies org.scala-lang#scala-compiler;2.10.2->org.scala-lang#jline;2.10.2 [optional->compile(*)]
+loadData of org.scala-lang#jline;2.10.2 of rootConf=default
+== resolving dependencies org.scala-lang#jline;2.10.2->org.fusesource.jansi#jansi;1.4 [compile->master(*)]
+loadData of org.fusesource.jansi#jansi;1.4 of rootConf=default
+	using redefined-public to resolve org.fusesource.jansi#jansi;1.4
+redefined-public: Checking cache for: dependency: org.fusesource.jansi#jansi;1.4 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+No entry is found in the ModuleDescriptorCache : /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.fusesource.jansi/jansi/ivy-1.4.xml
+post 1.3 ivy file: using exact as default matcher
+	resolver not found: null => trying to use the one configured for org.fusesource.jansi#jansi;1.4
+	configured resolver found for org.fusesource.jansi#jansi;1.4: redefined-public: saving this data
+	found ivy file in cache for org.fusesource.jansi#jansi;1.4 (resolved by redefined-public): /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.fusesource.jansi/jansi/ivy-1.4.xml
+redefined-public: module revision found in cache: org.fusesource.jansi#jansi;1.4
+	found org.fusesource.jansi#jansi;1.4 in redefined-public
+== resolving dependencies org.scala-lang#jline;2.10.2->org.fusesource.jansi#jansi;1.4 [compile->compile(*)]
+loadData of org.fusesource.jansi#jansi;1.4 of rootConf=default
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-library;2.10.2 [default->default]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-library;2.10.2 [default->runtime]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-library;2.10.2 [default->compile]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-sbt#boot-scala;1.0->org.scala-lang#scala-library;2.10.2 [default->master]
+loadData of org.scala-lang#scala-library;2.10.2 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+Nbr of module to sort : 5
+Sort dependencies of : org.scala-lang#scala-compiler;2.10.2 / Number of dependencies = 3
+Sort dependencies of : org.scala-lang#scala-library;2.10.2 / Number of dependencies = 0
+Sort done for : org.scala-lang#scala-library;2.10.2
+Sort dependencies of : org.scala-lang#scala-reflect;2.10.2 / Number of dependencies = 1
+Module descriptor is processed : org.scala-lang#scala-library;2.10.2
+Sort done for : org.scala-lang#scala-reflect;2.10.2
+Sort dependencies of : org.scala-lang#jline;2.10.2 / Number of dependencies = 1
+Sort dependencies of : org.fusesource.jansi#jansi;1.4 / Number of dependencies = 1
+Sort done for : org.fusesource.jansi#jansi;1.4
+Sort done for : org.scala-lang#jline;2.10.2
+Sort done for : org.scala-lang#scala-compiler;2.10.2
+Module descriptor is processed : org.scala-lang#scala-library;2.10.2
+Module descriptor is processed : org.scala-lang#scala-reflect;2.10.2
+Module descriptor is processed : org.scala-lang#jline;2.10.2
+Module descriptor is processed : org.fusesource.jansi#jansi;1.4
+	resolved ivy file produced in /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/resolution-cache/resolved-org.scala-sbt-boot-scala-1.0.xml
+:: downloading artifacts ::
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.10.2.jar.part
+sha1 file found for http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar: checking...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar.sha1
+		to /var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/ivytmp2095319590120486557sha1
+sha1 OK for http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.10.2!scala-compiler.jar (10080ms)
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-library/jars/scala-library-2.10.2.jar.part
+sha1 file found for http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar: checking...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar.sha1
+		to /var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/ivytmp5826233744060678890sha1
+sha1 OK for http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+	[SUCCESSFUL ] org.scala-lang#scala-library;2.10.2!scala-library.jar (4827ms)
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.2.jar.part
+sha1 file found for http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar: checking...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar.sha1
+		to /var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/ivytmp8123578448213226454sha1
+sha1 OK for http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+	[SUCCESSFUL ] org.scala-lang#scala-reflect;2.10.2!scala-reflect.jar (2427ms)
+	 trying http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+downloading http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/jline/jars/jline-2.10.2.jar.part
+sha1 file found for http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar: checking...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar.sha1
+		to /var/folders/xh/r8xzpws53pl4m1kdz69y9f280000gn/T/ivytmp3565514761776659240sha1
+sha1 OK for http://repo1.maven.org/maven2/org/scala-lang/jline/2.10.2/jline-2.10.2.jar
+	[SUCCESSFUL ] org.scala-lang#jline;2.10.2!jline.jar (349ms)
+	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
+:: resolution report :: resolve 2868ms :: artifacts dl 17686ms
+Nbr of module to sort : 5
+Sort dependencies of : org.scala-lang#scala-compiler;2.10.2 / Number of dependencies = 3
+Sort dependencies of : org.scala-lang#scala-library;2.10.2 / Number of dependencies = 0
+Sort done for : org.scala-lang#scala-library;2.10.2
+Sort dependencies of : org.scala-lang#scala-reflect;2.10.2 / Number of dependencies = 1
+Module descriptor is processed : org.scala-lang#scala-library;2.10.2
+Sort done for : org.scala-lang#scala-reflect;2.10.2
+Sort dependencies of : org.scala-lang#jline;2.10.2 / Number of dependencies = 1
+Sort dependencies of : org.fusesource.jansi#jansi;1.4 / Number of dependencies = 1
+Sort done for : org.fusesource.jansi#jansi;1.4
+Sort done for : org.scala-lang#jline;2.10.2
+Sort done for : org.scala-lang#scala-compiler;2.10.2
+Module descriptor is processed : org.scala-lang#scala-library;2.10.2
+Module descriptor is processed : org.scala-lang#scala-reflect;2.10.2
+Module descriptor is processed : org.scala-lang#jline;2.10.2
+Module descriptor is processed : org.fusesource.jansi#jansi;1.4
+	report for org.scala-sbt#boot-scala;1.0 default produced in /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/resolution-cache/org.scala-sbt-boot-scala-default.xml
+	resolve done (2868ms resolve - 17686ms download)
+setting 'scala' to '2.10.2'
+:: retrieving :: org.scala-sbt#boot-scala
+	checkUpToDate=true
+no explicit confs given for retrieve, using ivy file: /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/resolution-cache/resolved-org.scala-sbt-boot-scala-1.0.xml
+using ivy parser to parse /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/resolution-cache/resolved-org.scala-sbt-boot-scala-1.0.xml
+post 1.3 ivy file: using exact as default matcher
+	confs: [default]
+	retrieving /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.fusesource.jansi/jansi/jars/jansi-1.4.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/scala-2.10.2/lib/jansi.jar
+	retrieving /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-library/jars/scala-library-2.10.2.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/scala-2.10.2/lib/scala-library.jar
+	retrieving /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.10.2.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/scala-2.10.2/lib/scala-compiler.jar
+	retrieving /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/jline/jars/jline-2.10.2.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/scala-2.10.2/lib/jline.jar
+	retrieving /Users/josh/Documents/Computer Science/PL/lab1/koans/ivyrepo/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.2.jar
+		to /Users/josh/Documents/Computer Science/PL/lab1/koans/sbtboot/scala-2.10.2/lib/scala-reflect.jar
+	5 artifacts copied, 0 already retrieved (24390kB/91ms)
+	retrieve done (91ms)

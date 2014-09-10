@@ -1,0 +1,70 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set(/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala)[0m
+[0m[[0mdebug[0m] [0m	modified: Set()[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
+[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set()[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala)[0m
+[0m[[0mdebug[0m] [0mRecompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /Users/josh/Dropbox/PL/lab1/src/test/scala/target/scala-2.10/classes...[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.4[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.4[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 3b085e92, interfacing (CompilerInterface) with Scala compiler version 2.10.4[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsfd.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/laf.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/sunrsasign.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar:/Users/josh/.sbt/boot/scala-2.10.4/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/Users/josh/Dropbox/PL/lab1/src/test/scala/target/scala-2.10/classes[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:1: object scalatest is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.scalatest._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:2: not found: object Lab1[0m
+[0m[[31merror[0m] [0mimport Lab1._[0m
+[0m[[31merror[0m] [0m       ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:11: not found: type FlatSpec[0m
+[0m[[31merror[0m] [0mclass Lab1Spec extends FlatSpec {[0m
+[0m[[31merror[0m] [0m                       ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:15: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "abs" should "evaluate to the absolute value of the argument" in {[0m
+[0m[[31merror[0m] [0m        ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:23: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "xor" should "evaluate to the exclusive or of the arguments" in {[0m
+[0m[[31merror[0m] [0m        ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:32: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "repeat" should "evaluate to repeated concatenation of a string" in {[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:41: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "repeat" should "evaluate to an empty string when repeated zero times" in {[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:48: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "repeat" should "throw an exception when a negative number of repetitions is expected" in {[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:56: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "sqrtStep" should "evaluate to one iteration of Newton's method" in {[0m
+[0m[[31merror[0m] [0m             ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:62: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "sqrtN" should "perform several iterations of sqrtStep" in {[0m
+[0m[[31merror[0m] [0m          ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:69: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "sqrtN" should "evaluate to x0 if n is zero" in {[0m
+[0m[[31merror[0m] [0m          ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:74: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "sqrtErr" should "perform iterations until the error is within epsilon" in {[0m
+[0m[[31merror[0m] [0m            ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:83: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "sqrtN" should "throw an exception when n is negative" in {[0m
+[0m[[31merror[0m] [0m          ^[0m
+[0m[[31merror[0m] [0m/Users/josh/Dropbox/PL/lab1/src/test/scala/Lab1Spec.scala:89: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "sqrtErr" should "throw an exception when using a non-positive epsilon" in {[0m
+[0m[[31merror[0m] [0m            ^[0m
+[0m[[31merror[0m] [0m14 errors found[0m
+[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
+[0m[[31merror[0m] [0m(compile:[31mcompile[0m) Compilation failed[0m
