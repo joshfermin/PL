@@ -234,11 +234,17 @@ object Lab1 extends jsy.util.JsyApplication {
   /* JavaScripty */
   def eval(e: Expr): Double = e match {
     case N(n) => n
-    case Unary(Neg, e1) => -1 * eval(e1)
-    case Binary(Plus, e1, e2) => eval(e1) + eval(e2) 
-    case Binary(Minus, e1, e2) => eval(e1) - eval(e2)
-    case Binary(Times, e1, e2) => eval(e1) * eval(e2)
-    case Binary(Div, e1, e2) => eval(e1) / eval(e2)
+    case Unary(unaryexp, e1) => unaryexp match {
+      case Neg => -1 * eval(e1)
+      case _ => throw new UnsupportedOperationException
+    }
+    case Binary(binaryexp, e1, e2) => binaryexp match {
+      case Plus => eval(e1) + eval(e2) 
+      case Minus => eval(e1) - eval(e2)
+      case Times => eval(e1) * eval(e2)
+      case Div => eval(e1) / eval(e2)
+      case _ => throw new UnsupportedOperationException
+    }
     case _ => throw new UnsupportedOperationException
   }
   
