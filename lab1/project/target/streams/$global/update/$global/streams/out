@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/Users/josh/Dropbox/PL/Assignments/lab1/project/}lab1-build...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/user/Dropbox/PL/Assignments/lab1/project/}lab1-build...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: default#lab1-build;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -16,7 +16,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#lab1-build;0.1-SNAPSHOT [provided][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#lab1-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.4 [provided->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.4 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@520ed128[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@32092e6a[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.4[0m
 [0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: org.scala-lang#scala-library;2.10.4[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.4 in sbt-chain[0m
@@ -1337,19 +1337,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1663ms :: artifacts dl 37ms[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT compile produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT runtime produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT test produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT provided produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT optional produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT compile-internal produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT runtime-internal produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT test-internal produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT plugin produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT sources produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT docs produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT pom produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT scala-tool produced in /Users/josh/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1663ms resolve - 37ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 4645ms :: artifacts dl 93ms[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT compile produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT runtime produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT test produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT provided produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT optional produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT compile-internal produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT runtime-internal produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT test-internal produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT plugin produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT sources produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT docs produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT pom produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#lab1-build;0.1-SNAPSHOT scala-tool produced in /home/user/Dropbox/PL/Assignments/lab1/project/target/resolution-cache/reports/default-lab1-build-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (4645ms resolve - 93ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

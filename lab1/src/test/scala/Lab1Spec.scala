@@ -157,26 +157,26 @@ class Lab1Spec extends FlatSpec {
   // lists.
   
   // Regardless, you can use this function to help test your code.
-  // def treeFromList(l: List[Int]): SearchTree = ((Empty: SearchTree) /: l)(insert)
+  def treeFromList(l: List[Int]): SearchTree = ((Empty: SearchTree) /: l)(insert)
   
-  // "insert" should "produce trees that satisfy repOk" in {
-  //   assert(repOk(treeFromList(List(3, 4, 7, 2, 1, 10))))
-  //   assert(repOk(treeFromList(List(1, 2, 3, 4, 5))))
-  //   assert(repOk(treeFromList(List(9, 8, 7, 6, 5))))
-  //   assert(repOk(treeFromList(List(1, 1, 1, 1))))
-  // }
+  "insert" should "produce trees that satisfy repOk" in {
+    assert(repOk(treeFromList(List(3, 4, 7, 2, 1, 10))))
+    assert(repOk(treeFromList(List(1, 2, 3, 4, 5))))
+    assert(repOk(treeFromList(List(9, 8, 7, 6, 5))))
+    assert(repOk(treeFromList(List(1, 1, 1, 1))))
+  }
 
-  // "insert-delete" should "produce tress that satisfy repOk" in {
-  //   val ins = (n: Int) => (t: SearchTree) => insert(t,n)
-  //   val del = (n: Int) => (t: SearchTree) => delete(t,n)
-  //   ((Empty: SearchTree) /: List(ins(2), ins(6), ins(10), ins(22), del(4), del(6), ins(4), del(10), del(4)))(
-  //       (t, f) => {
-  //         val t1 = f(t)
-  //         assert(repOk(t1))
-  //         t1
-  //       }
-  //   )
-  // }
+  "insert-delete" should "produce tress that satisfy repOk" in {
+    val ins = (n: Int) => (t: SearchTree) => insert(t,n)
+    val del = (n: Int) => (t: SearchTree) => delete(t,n)
+    ((Empty: SearchTree) /: List(ins(2), ins(6), ins(10), ins(22), del(4), del(6), ins(4), del(10), del(4)))(
+        (t, f) => {
+          val t1 = f(t)
+          assert(repOk(t1))
+          t1
+        }
+    )
+  }
   
   // Eval
   

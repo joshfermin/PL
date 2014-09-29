@@ -29,6 +29,10 @@
 [0m[[0minfo[0m] [0m[32m- should remove the smallest value from a tree, and provide the resulting tree[0m[0m
 [0m[[0minfo[0m] [0m[32mdelete[0m[0m
 [0m[[0minfo[0m] [0m[32m- should remove a given value from a tree, if present[0m[0m
+[0m[[0minfo[0m] [0m[32minsert[0m[0m
+[0m[[0minfo[0m] [0m[32m- should produce trees that satisfy repOk[0m[0m
+[0m[[0minfo[0m] [0m[32minsert-delete[0m[0m
+[0m[[0minfo[0m] [0m[32m- should produce tress that satisfy repOk[0m[0m
 [0m[[0minfo[0m] [0m[32meval+[0m[0m
 [0m[[0minfo[0m] [0m[32m- should perform addition[0m[0m
 [0m[[0minfo[0m] [0m[32meval-[0m[0m

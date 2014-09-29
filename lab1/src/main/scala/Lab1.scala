@@ -87,19 +87,19 @@ object Lab1 extends jsy.util.JsyApplication {
   def sqrtStep(c: Double, xn: Double): Double = xn - (((xn*xn)-c)/(2*xn))
 
   def sqrtN(c: Double, x0: Double, n: Int): Double = {
-    require(n>=0 && c>0)
-    if(n == 0) {
-      return x0 
+    require(n>=0 && c>=0) // cant have negative square root or negative amount of guesses
+    if(n == 0) { // finishing up recursion
+      return x0 // return best guess
     } 
-    else sqrtN(c, sqrtStep(c, x0), n-1)  
+    else sqrtN(c, sqrtStep(c, x0), n-1) // recurse on sqrtN with sqrtStep 
   }
   
   def sqrtErr(c: Double, x0: Double, epsilon: Double): Double = {
-    require(epsilon > 0)
-    if(abs(x0*x0 - c) < epsilon) {
-      return x0
+    require(epsilon > 0) // want positive bound
+    if(abs(x0*x0 - c) < epsilon) { // check if within bounds
+      return x0 // if so, return guess
     }
-    else sqrtErr(c, sqrtStep(c, x0), epsilon)
+    else sqrtErr(c, sqrtStep(c, x0), epsilon) // recurse, using sqrtStep, until within bounds
   }
 
   def sqrt(c: Double): Double = {
@@ -115,10 +115,14 @@ object Lab1 extends jsy.util.JsyApplication {
   
   def repOk(t: SearchTree): Boolean = {
     def check(t: SearchTree, min: Int, max: Int): Boolean = t match {
-      case Empty => true
+      case Empty => true // if empty tree return true
       case Node(l, d, r) => if(d >= min && d < max) check(l,min,d)&&check(r,d,max) else false
+        // else recurse on the node 
+        // if d within min and max recurse on the left tree with check(l,min,d)
+          // left subtree becomes new tree, min is still min, but max is d because you want parent node to be bigger value
+          // right subtree becomes new search tree, max still max, but min is d which is the parent
     }
-    check(t, Int.MinValue, Int.MaxValue)
+    check(t, Int.MinValue, Int.MaxValue) // initializing min/max value
   }
   
   def insert(t: SearchTree, n: Int): SearchTree = t match {
@@ -151,7 +155,7 @@ object Lab1 extends jsy.util.JsyApplication {
         Node(insert(l,n), d, r)  
       else 
         /*
-          If our Int n is greater than or equal to the data value d, we create a new node
+          If our Int n is greater than the data value d, we create a new node
           by inserting a right Search sub tree (with a right empty child and keeping track of 
           our Int n), keeping the parent data value d intact, and keeping the left subtree
           the same.
@@ -189,25 +193,22 @@ object Lab1 extends jsy.util.JsyApplication {
   }
  
   def delete(t: SearchTree, n: Int): SearchTree = t match {
-    /*
-      If no children, then delete everything - return empty
-    */
     case Empty => Empty
-    case Node(Empty, d, Empty) => if(n == d) Empty else t
+    case Node(Empty, d, Empty) => if(n == d) Empty else t // if data value in tree with no children delete
     /*
-      If right child is not empty, check if number is in datavalue 
+      If right child is not empty, check if n is root 
         if true : return a new tree without the specified data value (n)
         if false: recurse down to the right subtree and continue looking for the
           value
     */
-    case Node(Empty, d, r) => if(n == d) r else Node(Empty,n,delete(r,n))
+    case Node(Empty, d, r) => if(n == d) r else Node(Empty,d,delete(r,n))
     /*
       If left child is not empty, check if number is in datavalue 
         if true : return a new tree without the specified data value (n)
         if false: recurse down to the left subtree and continue looking for the
           value
     */
-    case Node(l, d, Empty) => if(n == d) l else Node(delete(l,n),n,Empty)
+    case Node(l, d, Empty) => if(n == d) l else Node(delete(l,n),d,Empty)
     case Node(l, d, r) =>  if (n == d) {
         /*
           when n == d, find the minimum value of the right subtree
@@ -223,10 +224,9 @@ object Lab1 extends jsy.util.JsyApplication {
         */
           val (r1, v) = deleteMin(r)
           Node(l, v, r1)
-        } else if (d > n) {
+        } else if (n < d) {
           Node(delete(l, n), d, r)
-        }
-        else {
+        } else {
           Node(l, d, delete(r, n))  
         }
   }
