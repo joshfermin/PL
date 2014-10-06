@@ -4,29 +4,33 @@
 
 	a.
 	```
-	A ∈ AObjects
+	Axioms:
+	V ::= a | b
+
+	-------------	   -------------
+	a ∈ VObjects		b ∈ VObjects
+
+
+	Rules:
+	A ::= V
+
+	t ∈ VObjects	
+	------------	   
+	t ∈ AObjects
+
+
+
+	A ::= A&A
+
+	t ∈ AObjects
 	------------
-	A & A ∈ AObjects
-
-
-	A ∈ AObjects
-	------------
-	V ∈ AObjects
-
-
-	V ∈ VObjects
-	-------------
-	a ∈ VObjects
-
-
-	V ∈ VObjects
-	-------------
-	b ∈ VObjects
+	t&t ∈ AObjects
+	
 	```
 
 	b.
 	```
-	given: a&b&b:
+	given: a & b & b:
 
 	     A            
         /|\           
@@ -57,7 +61,7 @@
  	  = aaA | bbB | ccC
  	  = aaaaA | bbb | ccccC
  	```  
- 	This produces a string which is of form a<sup>n</sup>b<sup>m</sup>c<sup>k</sup>. Where m >= 0, n > 0 and k > 0.
+ 	This prints out either a series of a's or series of c's or series of b's or an empty string.
 
  	<br>
  	d.
@@ -150,7 +154,7 @@
      |      
     od   
     ```
-    Where or is operator and od is operand.
+    Where <i>or</i> is operator and <i>od</i> is operand.
 
 
 	The second grammar contains three terminal symbols which are operand, operator, and ε. This grammar is right associative because it recurses on esuffix which on the right side e ::= operand esuffix. An example parse tree for this grammar would be as follows:
@@ -165,7 +169,7 @@
 	        	 |
 	        	 ε
 	```
-	Where or is operator, od is operand and S is essufix.
+	Where <i>or</i> is operator, <i>od</i> is operand and <i>S</i> is essufix.
 
 	ii. These grammars generate the same expression. This is because they both recurse, the first one recurses on itself, while the second one recurses through esuffix. And also, for the first one there is a sequence of operator operand preceded by recursive call e.
 	For the second one there is a sequence of the same operator and operand this time followed by the recursive call essufix. Also, if you look at the parse trees above, they return the same terminal symbols, minus the epsilon.
@@ -177,15 +181,19 @@
 	``` scala
 		scala> 10 << 2 - 4
 		res17: Int = -2147483648
-		scala> 10 << -2
-		res18: Int = -2147483648
+		scala> (10 << 2) - 4
+		res0: Int = 36
+		scala> 10 << (2 - 4)
+		res0: Int = -2147483648
 
 		scala> 10 - 8 << 10
 		res20: Int = 2048
-		scala> 2 << 10
-		res21: Int = 2048
+		scala> (10 - 8) << 10
+		res2: Int = 2048
+		scala> 10 - (8 << 10)
+		res3: Int = -8182
 	```
-	This is clearly 
+
 
 	c.
 	``` scala
@@ -193,5 +201,5 @@
 	<sign> ::= - | ε
 	<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
 	<decimal-point> ::= .
-	<exponent> ::= E <sign> <digit>
+	<exponent> ::= E <sign> <digit> | ε
 	```

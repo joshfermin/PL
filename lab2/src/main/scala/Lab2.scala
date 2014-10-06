@@ -4,6 +4,7 @@ object Lab2 extends jsy.util.JsyApplication {
   
   /*
    * CSCI 3155: Lab 2
+   * http://math.chapman.edu/~jipsen/js/
    */
 
   /*
@@ -37,7 +38,7 @@ object Lab2 extends jsy.util.JsyApplication {
   val emp: Env = Map()
   def get(env: Env, x: String): Expr = env(x)
   def extend(env: Env, x: String, v: Expr): Env = {
-    require(isValue(v))
+    require(isValue(v)) // input parameter must be a value and not an expression
     env + (x -> v)
   }
   
@@ -54,6 +55,11 @@ object Lab2 extends jsy.util.JsyApplication {
     require(isValue(v))
     (v: @unchecked) match {
       case N(n) => n
+      case null => 0.0
+      case B(false) => 0.0
+      case B(true) => 1.0
+      case Undefined => Double.NaN
+      case S(s) => try s.toDouble catch { case _: Throwable => Double.NaN }// try to see if string can be a double if not return NaN
       case _ => throw new UnsupportedOperationException
     }
   }
@@ -62,7 +68,11 @@ object Lab2 extends jsy.util.JsyApplication {
     require(isValue(v))
     (v: @unchecked) match {
       case B(b) => b
-      case _ => throw new UnsupportedOperationException
+      case S("") => false //if empty string false
+      case S(_) => true //if not, true
+      case N(n) if n == 0.0 || n == -0.0 || n.isNaN => false // compare if n is 0.0/-0.0/NaN, return fasle 
+      case N(_) => true
+      case Undefined => false
     }
   }
   
@@ -70,6 +80,9 @@ object Lab2 extends jsy.util.JsyApplication {
     require(isValue(v))
     (v: @unchecked) match {
       case S(s) => s
+      case B(true) => "true"
+      case B(false) => "false"
+      case N(n) => if(n.isWhole) "%.0f" format n else n.toString // %.0f is the format string for a float, with 0 decimal places.
       case Undefined => "undefined"
       case _ => throw new UnsupportedOperationException
     }
@@ -78,12 +91,57 @@ object Lab2 extends jsy.util.JsyApplication {
   def eval(env: Env, e: Expr): Expr = {
     /* Some helper functions for convenience. */
     def eToVal(e: Expr): Expr = eval(env, e)
-
     e match {
       /* Base Cases */
-      
+      case _ if (isValue(e)) => e
       /* Inductive Cases */
+      case Undefined => Undefined
       case Print(e1) => println(pretty(eToVal(e1))); Undefined
+      // if statement lets us know if first expression is true or false, if true return eval of second expression
+      case Binary(And, e1, e2) => 
+        if (toBoolean(eval(env, e1))) eval(env, e2) else eval(env, e1) 
+      case Binary(Or, e1, e2) => 
+        if (toBoolean(eval(env, e1))) eval(env, e1) else eval(env, e2)
+      case Binary(Plus, e1, e2) => (eToVal(e1), eToVal(e2)) match {
+        case (S(s1), v2) => S(s1 + toStr(v2))
+        case (v1, S(s2)) => S(toStr(v1) + s2)
+        case (v1, v2) => N(toNumber(v1) + toNumber(v2))
+      }
+      case Binary(Minus, e1, e2) => N(toNumber(eval(env,e1)) - toNumber(eval(env,e2)))
+      case Binary(Times, e1, e2) => N(toNumber(eval(env,e1)) * toNumber(eval(env,e2)))
+      case Binary(Div, e1, e2) => N(toNumber(eval(env,e1)) / toNumber(eval(env,e2)))
+      case Binary(Eq, e1, e2) => B(eval(env,e1) == eval(env, e2))
+      case Binary(Ne, e1, e2) => (eToVal(e1), eToVal(e2)) match {
+        case (S(s1), S(s2)) => B(s1 != e2)
+        case (N(n1), N(n2)) => B(n1 != n2)
+        case (B(b1), B(b2)) => B(b1 != b2)
+        case (_, _) => B(true)
+      }         
+      case Binary(Lt,e1,e2) => (eToVal(e1), eToVal(e2)) match {
+        case (S(s1), S(s2)) => B(s1 < s2)
+        case (N(n1), N(n2)) => B(n1 < n2)
+        case (B(b1), B(b2)) => B(b1 < b2)
+        case (_, _) => B(false)
+      }         
+      case Binary(Le, e1, e2) => B(toNumber(eval(env, e1)) <= toNumber(eval(env, e2)))
+      case Binary(Gt, e1, e2) => B(toNumber(eval(env, e1)) > toNumber(eval(env, e2)))
+      case Binary(Ge, e1, e2) => B(toNumber(eval(env, e1)) >= toNumber(eval(env, e2)))
+
+      case If(e1, e2, e3) => if (toBoolean(eval(env, e1))) eval(env, e2) else eval(env, e3)
+      case Binary(Seq, e1, e2) => eval(env, e1); eval(env, e2)
+
+      case Unary(Neg, e1) => N(-toNumber(e1))
+      case Unary(Not, e1) => B(!toBoolean(e1))
+
+      case ConstDecl(x, e1, e2) => {
+        // myvar is new environment variable "x"
+        // map to e1. use this map to eval e2
+        // dynamically typing x to type of e1
+        val myvar = extend(env, x, eval(env,e1)) 
+        eval(myvar, e2) 
+      }
+
+      case Var(x) => get(env,x)
 
       case _ => throw new UnsupportedOperationException
     }
@@ -113,5 +171,4 @@ object Lab2 extends jsy.util.JsyApplication {
     
     println(pretty(v))
   }
-
 }
