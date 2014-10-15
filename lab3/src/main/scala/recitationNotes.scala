@@ -71,7 +71,10 @@
   // Examples:
   // Do NEG
     def step(e:Expr) e match => {
-      case Unary(uop, e1) if isValue(e1) => // if e1 is a value apply do rule, if not apply search rule
+      // Do rule
+      case Unary(uop, e1) if isValue(e1) => toNumber(-e1) // if e1 is a value apply do rule, if not apply search rule
+      // Search rule, knows e1 is not a value therefore call step rule
+      case Unary(uop, e1) => Unary(uop, setp(e1)) // because search rule says e1 goes to e1' and uope1 goes to uope1'
     }
 
 
@@ -81,4 +84,3 @@
 
 
 
-    
