@@ -69,3 +69,16 @@
   // DO RULEs are corner cases i.e. base cases, then write search rules.
 
   // Examples:
+  // Do NEG
+    def step(e:Expr) e match => {
+      case Unary(uop, e1) if isValue(e1) => // if e1 is a value apply do rule, if not apply search rule
+    }
+
+
+
+
+
+
+
+
+    
