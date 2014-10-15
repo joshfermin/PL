@@ -324,20 +324,29 @@ object Lab3 extends jsy.util.JsyApplication {
     // then evaluate e2 to some other final value (2nd step)
     // then add two values into final 1 step (v1 + v2)
 
+    // SEARCH RULE (dont have value yet, keep stepping)
     // e1 -> e1'
     // --------------
     // e1+e2-> e1'+e2
 
+    // DO RULE 1 (have one value keep stepping for other value)
     // e2 -> e2'  v1 = value
     // --------------
     // v1+e2-> v1+e2'
 
+    // DO RULE 2 (have both values, just do the computation)
     // cant step on e1 anymore since it is a value
     // then take a small step on e2,
 
-    //
+    // n' = toNum(v1) + toNum(v2)
+    // -------------------------
+    // v1+v2 -> n'
 
+    // bottom is javascripty, top is scala 
 
+  // DO RULEs are corner cases i.e. base cases, then write search rules.
+
+  // Examples:
 
 
 
