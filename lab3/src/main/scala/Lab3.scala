@@ -149,6 +149,21 @@ object Lab3 extends jsy.util.JsyApplication {
       case If(e1, e2, e3) => if (eToB(e1)) eToVal(e2) else eToVal(e3)
       
       case ConstDecl(x, e1, e2) => eval(extend(env, x, eToVal(e1)), e2)
+
+      case Call(e1, e2) => eval(env, e1) match {
+        case Function(None, x, eprime) => {  // non-recursive case
+          val v1 = eval(env, e2)
+          val env1 = extend(env, x, v1)
+          eval(env1, eprime)
+        }
+        case v1 @ Function(Some(x1), x2, eprime) => {
+          val v2 = eval(env, e2)
+          val env1 = extend(env, x1, v1)
+          val env2 = extend(env1, x2, v2)
+          eval(env2, eprime)
+        }
+        case _ => throw new DynamicTypeError(e)
+      }
       
       case _ => throw new UnsupportedOperationException
     }
@@ -260,3 +275,74 @@ object Lab3 extends jsy.util.JsyApplication {
   }
     
 }
+
+// BIG STEP
+
+// evalneg - convert inference rule to code
+  // eval(env,e1)
+  // eToVal(e1)
+  // toNum(eval(env,e1))
+  // -toNum(eval(env,e1))
+
+//evalPlusNumber
+  // eval(e1)
+  // eval(e2)
+        // case (S(s1), v2) => S(s1 + toStr(v2)) - EvalPlusString1
+        // case (v1, S(s2)) => S(toStr(v1) + s2) - EvalPlusString2
+        // case (v1, v2) => N(toNumber(v1) + toNumber(v2)) - EvalPlusNumber
+
+// Need to write two more cases for EvalCall
+  // e1 eval to v1 which is a function, e' is function body
+  // function(x) {x + 5} (2+8) - javascripty syntax for calling
+    // function(x) {x + 5} - e1
+        // { x + 5 } - e
+        // x is x
+    // (2+8) - e2
+
+  // call eval(e1) == Function(_,_,_) - if not true throw type error (needs to be function)
+  // cal eval(e1, v1, e2) - N(10)
+  // call eval(extend(env, x, v2), e')
+
+
+// and EvalCallRec
+  // function f(x) {x + 5} (2+8) - javascripty syntax for calling
+    // x2 = x
+    // x1 = x
+    // e1 - evaluates to v1
+    // extend environment with two values x1 - f x2 for v2
+      // eval(extend(extend(env,x1,v1), x2, v2), e1)
+      // eval(extend(extend(env,x2,v2), x1, v1), e1)
+      // dosent matter since mapping will be the same
+
+// environment is a map from strings to values
+// Need type error equality, for these two arguments if one isnt a function throw type error
+
+
+// Small Step 
+  // e1 + e2
+    // first evaluate e1 to a point where it is a final (terminal) value (1st step)
+    // then evaluate e2 to some other final value (2nd step)
+    // then add two values into final 1 step (v1 + v2)
+
+    // e1 -> e1'
+    // --------------
+    // e1+e2-> e1'+e2
+
+    // e2 -> e2'  v1 = value
+    // --------------
+    // v1+e2-> v1+e2'
+
+    // cant step on e1 anymore since it is a value
+    // then take a small step on e2,
+
+    //
+
+
+
+
+
+
+
+
+
+
