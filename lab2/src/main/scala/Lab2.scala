@@ -58,7 +58,7 @@ object Lab2 extends jsy.util.JsyApplication {
       case null => 0.0
       case B(false) => 0.0
       case B(true) => 1.0
-      case Undefined => Double.NaN
+      case Undefined => Double.NaN 
       case S(s) => try s.toDouble catch { case _: Throwable => Double.NaN }// try to see if string can be a double if not return NaN
       case _ => throw new UnsupportedOperationException
     }
@@ -93,13 +93,13 @@ object Lab2 extends jsy.util.JsyApplication {
     def eToVal(e: Expr): Expr = eval(env, e)
     e match {
       /* Base Cases */
-      case _ if (isValue(e)) => e
+      case _ if (isValue(e)) => e // base case if e is a value that is recognized, return e
       /* Inductive Cases */
       case Undefined => Undefined
       case Print(e1) => println(pretty(eToVal(e1))); Undefined
       // if statement lets us know if first expression is true or false, if true return eval of second expression
       case Binary(And, e1, e2) => 
-        if (toBoolean(eval(env, e1))) eval(env, e2) else eval(env, e1) 
+        if (toBoolean(eval(env, e1))) eval(env, e2) else eval(env, e1)
       case Binary(Or, e1, e2) => 
         if (toBoolean(eval(env, e1))) eval(env, e1) else eval(env, e2)
       case Binary(Plus, e1, e2) => (eToVal(e1), eToVal(e2)) match {
@@ -112,7 +112,7 @@ object Lab2 extends jsy.util.JsyApplication {
       case Binary(Div, e1, e2) => N(toNumber(eval(env,e1)) / toNumber(eval(env,e2)))
       case Binary(Eq, e1, e2) => B(eval(env,e1) == eval(env, e2))
       case Binary(Ne, e1, e2) => (eToVal(e1), eToVal(e2)) match {
-        case (S(s1), S(s2)) => B(s1 != e2)
+        case (S(s1), S(s2)) => B(s1 != s2)
         case (N(n1), N(n2)) => B(n1 != n2)
         case (B(b1), B(b2)) => B(b1 != b2)
         case (_, _) => B(true)
@@ -143,7 +143,7 @@ object Lab2 extends jsy.util.JsyApplication {
 
       case Var(x) => get(env,x)
 
-      case _ => throw new UnsupportedOperationException
+      // case _ => throw new UnsupportedOperationException
     }
   }
     
