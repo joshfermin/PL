@@ -77,6 +77,15 @@
       case Unary(uop, e1) => Unary(uop, setp(e1)) // because search rule says e1 goes to e1' and uope1 goes to uope1'
     }
 
+// Quiz from last year:
+  def eval(e: Expr):Double = e match {
+    case N(n) => n
+    case ConstDecl(ebind, ebody) => eval(ebody(N(eval(ebind))))
+  }
+  // ebind is expression
+  // eval ebind is a double
+  // ebody of ^ takes double gives expr
+
 
 
 
