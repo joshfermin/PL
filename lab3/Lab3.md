@@ -16,10 +16,12 @@ Josh Fermin and Yu Zhou
 
 	function callMe(){
 	   addMe = globalVar+10;
+	   print(addMe)
 	}
 
 	runMe();
-	print(addMe);
-	print(globalVar);
  ```
- If we define the above as a statically typed language, then the last two prints would be 10 and 0. The variable globalVar would be 0 because
+ If we define the above as a statically typed language, then calling runMe will return and print out a 10. The variable globalVar would be 0 because in statically typed languages the function callMe does not inherit scope from runMe.
+
+ If we define the above as a dynamically typed language, then calling runMe will return and print out a 20. This is because callMe inherits scope from runMe so that is why addMe is now 20.
+

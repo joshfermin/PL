@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mRunning Lab3 test.jsy[0m
+[0m[[0minfo[0m] [0mRunning Lab3 Lab3-jofe7557.jsy[0m
 [0m[[0mdebug[0m] [0mWaiting for threads to exit or System.exit to be called.[0m
 [0m[[0mdebug[0m] [0m  Classpath:[0m
 [0m[[0mdebug[0m] [0m	/Users/joshfermin/Dropbox/PL/Assignments/lab3/target/scala-2.10/classes[0m
@@ -6,59 +6,7 @@
 [0m[[0mdebug[0m] [0m	/Users/joshfermin/Dropbox/PL/Assignments/lab3/lib/scalatest_2.10-2.0.jar[0m
 [0m[[0mdebug[0m] [0m	/Users/joshfermin/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.3.jar[0m
 [0m[[0mdebug[0m] [0mWaiting for thread run-main-0 to terminate.[0m
-[0m[[31merror[0m] [0m(run-main-0) scala.MatchError: Binary(Seq,Print(S(Plus)),Binary(Seq,Print(S(Should be 4)),Binary(Seq,Print(Binary(Plus,N(1.0),N(3.0))),Binary(Seq,Print(S(should be "a3.0")),Binary(Seq,Print(Binary(Plus,S(a),N(3.0))),Binary(Seq,Print(S(should be "3.0a")),Binary(Seq,Print(Binary(Plus,N(3.0),S(a))),Binary(Seq,Print(S(---------------------------------------)),Binary(Seq,Print(S(DoNeg)),Binary(Seq,Print(S(should be -5)),Binary(Seq,Print(Unary(Neg,N(5.0))),Binary(Seq,Print(S(should be 5)),Binary(Seq,Print(Unary(Neg,Unary(Neg,N(5.0)))),Binary(Seq,Print(S(---------------------------------------)),Binary(Seq,Print(S(DoNot)),Binary(Seq,Print(S(should be false)),Binary(Seq,Print(Unary(Not,B(true))),Binary(Seq,Print(Unary(Not,Unary(Not,B(false)))),Binary(Seq,Print(S(should be true)),Binary(Seq,Print(Unary(Not,B(false))),Binary(Seq,Print(Unary(Not,Unary(Not,B(true)))),Binary(Seq,Print(S(---------------------------------------)),Binary(Seq,Print(S(DoArith)),Binary(Seq,Print(S(Should be 0)),Binary(Seq,Print(Binary(Times,B(false),N(34.0))),Binary(Seq,Print(Binary(Div,B(false),N(49.0))),Binary(Seq,Print(Binary(Minus,B(false),N(0.0))),Binary(Seq,Print(S(Should be 1)),Binary(Seq,Print(Binary(Div,B(true),N(1.0))),Binary(Seq,Print(Binary(Minus,N(2.0),B(true))),Binary(Seq,Print(Binary(Times,B(true),N(1.0))),Binary(Seq,Print(S(---------------------------------------)),Binary(Seq,Print(S(DoIf)),Binary(Seq,Print(S(should all say "yay!")),Binary(Seq,If(B(true),Print(S(yay!)),Print(S(boo!))),Binary(Seq,If(Binary(Lt,N(3.0),N(6.0)),Print(S(yay!)),Print(S(boo!))),Binary(Seq,If(B(false),Print(S(boo!)),Print(S(yay!))),Binary(Seq,If(Binary(Lt,N(6.0),N(3.0)),Print(S(boo!)),Print(S(yay!))),Binary(Seq,Print(S(=============================================================)),Print(S(=============================================================))))))))))))))))))))))))))))))))))))))))) (of class jsy.lab3.ast$Binary)[0m
-scala.MatchError: Binary(Seq,Print(S(Plus)),Binary(Seq,Print(S(Should be 4)),Binary(Seq,Print(Binary(Plus,N(1.0),N(3.0))),Binary(Seq,Print(S(should be "a3.0")),Binary(Seq,Print(Binary(Plus,S(a),N(3.0))),Binary(Seq,Print(S(should be "3.0a")),Binary(Seq,Print(Binary(Plus,N(3.0),S(a))),Binary(Seq,Print(S(---------------------------------------)),Binary(Seq,Print(S(DoNeg)),Binary(Seq,Print(S(should be -5)),Binary(Seq,Print(Unary(Neg,N(5.0))),Binary(Seq,Print(S(should be 5)),Binary(Seq,Print(Unary(Neg,Unary(Neg,N(5.0)))),Binary(Seq,Print(S(---------------------------------------)),Binary(Seq,Print(S(DoNot)),Binary(Seq,Print(S(should be false)),Binary(Seq,Print(Unary(Not,B(true))),Binary(Seq,Print(Unary(Not,Unary(Not,B(false)))),Binary(Seq,Print(S(should be true)),Binary(Seq,Print(Unary(Not,B(false))),Binary(Seq,Print(Unary(Not,Unary(Not,B(true)))),Binary(Seq,Print(S(---------------------------------------)),Binary(Seq,Print(S(DoArith)),Binary(Seq,Print(S(Should be 0)),Binary(Seq,Print(Binary(Times,B(false),N(34.0))),Binary(Seq,Print(Binary(Div,B(false),N(49.0))),Binary(Seq,Print(Binary(Minus,B(false),N(0.0))),Binary(Seq,Print(S(Should be 1)),Binary(Seq,Print(Binary(Div,B(true),N(1.0))),Binary(Seq,Print(Binary(Minus,N(2.0),B(true))),Binary(Seq,Print(Binary(Times,B(true),N(1.0))),Binary(Seq,Print(S(---------------------------------------)),Binary(Seq,Print(S(DoIf)),Binary(Seq,Print(S(should all say "yay!")),Binary(Seq,If(B(true),Print(S(yay!)),Print(S(boo!))),Binary(Seq,If(Binary(Lt,N(3.0),N(6.0)),Print(S(yay!)),Print(S(boo!))),Binary(Seq,If(B(false),Print(S(boo!)),Print(S(yay!))),Binary(Seq,If(Binary(Lt,N(6.0),N(3.0)),Print(S(boo!)),Print(S(yay!))),Binary(Seq,Print(S(=============================================================)),Print(S(=============================================================))))))))))))))))))))))))))))))))))))))))) (of class jsy.lab3.ast$Binary)
-	at Lab3$.step(Lab3.scala:189)
-	at Lab3$.loop$1(Lab3.scala:235)
-	at Lab3$.iterateStep(Lab3.scala:241)
-	at Lab3$$anonfun$processFile$2.apply$mcV$sp(Lab3.scala:272)
-	at Lab3$$anonfun$processFile$2.apply(Lab3.scala:271)
-	at Lab3$$anonfun$processFile$2.apply(Lab3.scala:271)
-	at jsy.util.JsyApplication.handle(JsyApplication.scala:21)
-	at Lab3$.processFile(Lab3.scala:271)
-	at jsy.util.JsyApplication.jsy$util$JsyApplication$$doFile$1(JsyApplication.scala:39)
-	at jsy.util.JsyApplication.main(JsyApplication.scala:50)
-	at Lab3.main(Lab3.scala)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at sbt.Run.invokeMain(Run.scala:67)
-	at sbt.Run.run0(Run.scala:61)
-	at sbt.Run.sbt$Run$$execute$1(Run.scala:51)
-	at sbt.Run$$anonfun$run$1.apply$mcV$sp(Run.scala:55)
-	at sbt.Run$$anonfun$run$1.apply(Run.scala:55)
-	at sbt.Run$$anonfun$run$1.apply(Run.scala:55)
-	at sbt.Logger$$anon$4.apply(Logger.scala:85)
-	at sbt.TrapExit$App.run(TrapExit.scala:248)
-	at java.lang.Thread.run(Thread.java:745)
 [0m[[0mdebug[0m] [0m	Thread run-main-0 exited.[0m
 [0m[[0mdebug[0m] [0mInterrupting remaining threads (should be all daemons).[0m
 [0m[[0mdebug[0m] [0mSandboxed run complete..[0m
-java.lang.RuntimeException: Nonzero exit code: 1
-	at scala.sys.package$.error(package.scala:27)
-	at sbt.BuildCommon$$anonfun$toError$1.apply(Defaults.scala:1830)
-	at sbt.BuildCommon$$anonfun$toError$1.apply(Defaults.scala:1830)
-	at scala.Option.foreach(Option.scala:236)
-	at sbt.BuildCommon$class.toError(Defaults.scala:1830)
-	at sbt.Defaults$.toError(Defaults.scala:35)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$36$$anonfun$apply$37.apply(Defaults.scala:695)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$36$$anonfun$apply$37.apply(Defaults.scala:693)
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:40)
-	at sbt.std.Transform$$anon$4.work(System.scala:63)
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:17)
-	at sbt.Execute.work(Execute.scala:235)
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)
-	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:159)
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:28)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-[0m[[31merror[0m] [0m(lab3/compile:[31mrun[0m) Nonzero exit code: 1[0m
+[0m[[0mdebug[0m] [0mExited with code 0[0m
