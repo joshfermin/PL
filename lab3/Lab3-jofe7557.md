@@ -1,4 +1,4 @@
-###CSCI 3155: Lab Assignment 3
+### CSCI 3155: Lab Assignment 3
 Yu Zhou and Josh Fermin
 
 1. JavaScripty Interpreter: Tag Testing, Recursive Functions, and Dynamic Scoping.
@@ -27,11 +27,7 @@ Yu Zhou and Josh Fermin
 
 2. JavaScripty Interpreter: Substitution and Evaluation Order.
 
-	c. The evaluation order is deterministic. The evaluation order is e1 then e2. The “Do rules”
-	require both e1 and e2 to be values. If either of them is not a value the search rule is applied
-	to do recursive calls to make e1 a value v1. After e1 is a value, search rule is called on e2
-	recursively to make e2 a value v2. Not until e1 and e2 are both values we can start to do the
-	operators.
+	c. The evaluation order is deterministic. The evaluation order is e1 then e2. The “Do rules” require both e1 and e2 to be values. If either of them is not a value the search rule is applied to do recursive calls to make e1 a value v1. After e1 is a value, search rule is called on e2 recursively to make e2 a value v2. When e1 and e2 are finally both values we can start to do the operators.
 
 
 3. Evaluation Order.
@@ -53,18 +49,24 @@ Yu Zhou and Josh Fermin
 	v1 bop e2 → v1 bop e2′
 	```
 
-	DoPlusNumber is used when both e1, e2 are values and neither of them is a string. Under such
-	conditions we do arithmetic plus for the two numbers:n ′ = toNumber(v1) + toNumber(v2)
-	v1 + v2 → n′
-	v1 ≠ str1, v2 ≠ str2
-	When either of them is a string, we use DOPLUSSTRING1 and DOPLUSSTRING2 to do the string
-	concatenation, even if the other one may not be a string.
+	To obtain the opposite evaluation order we would write the next two rules:
+	```
+	e2  → e2 ′ 
+	-----------------------
+	e2 bop e1 → e2′ bop e1
+
+
+	e1 → e1 ′  bop +
+	-----------------------
+	e1 bop v2 → e1′ bop v2
+	```
+
 	
 
 4. Short-Circuit Evaluation
 
-	a. An example would be: in java or c++ when we need to write a for loop to find if there is an
-	element with the value of 100 in an integer array of size n.
+	a. An example would be: in java or c++ when we need to write a for loop to find if there is an element with the value of 100 in an integer array of size n.
+	
 	If we write the for loop as follows:
   	``` java
 	for (int i=0;(array[i]!=100)&&(i<n);i++)
@@ -77,11 +79,8 @@ Yu Zhou and Josh Fermin
 	for (int i=0;(i<n)&&(array[i]!=100); i++)
 	```
 
-	The for loop will be fine, because if we run into the condition where i==n, the for loop is not
-	again executed as the compiler does not judge the right part of “&&” as long as the “i<n” is
-	no longer true.
+	The for loop will be fine, because if we run into the condition where i==n, the for loop is not again executed as the compiler does not judge the right part of “&&” as long as the “i<n” is no longer true.
 
-	b. Yes. In the bop(And, e1, e2) if the value of e1 is true, it still needs to check the value of
-	e2. But if value of e1, v1 is false, e2 is never checked. Same condition applies to bop(Or,
-	e1, e2) and If(e1,e2,e3). The compiler checks the value of e1, and skip certain parts
-	according to the value of e1.
+	b. Yes. In the bop(And, e1, e2) if the value of e1 is true, it still needs to check the value of e2. But if value of e1, v1 is false, e2 is never checked/evaluated. Same idea applies to bop(Or, e1, e2) and If(e1,e2,e3). The compiler checks the value of e1, and skips certain parts according to the value of e1.
+
+
