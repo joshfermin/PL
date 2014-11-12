@@ -39,6 +39,8 @@ object Lab4 extends jsy.util.JsyApplication {
   def compressRec[A](l: List[A]): List[A] = l match {
     case Nil | _ :: Nil => l
     case h1 :: (t1 @ (h2 :: _)) => if (h1 == h2) compressRec(t1) else h1::compressRec(t1)
+    // If head of current list and next element are equal, then call compressRec on tail
+    // else keep original list.
   }
   
   def compressFold[A](l: List[A]): List[A] = l.foldRight(Nil: List[A]){
@@ -54,8 +56,8 @@ object Lab4 extends jsy.util.JsyApplication {
   def mapFirst[A](f: A => Option[A])(l: List[A]): List[A] = l match {
     case Nil => l
     case h :: t => f(h) match {
-      case Some(x) => x::t
-      case _ => h :: mapFirst(f)(t)
+      case Some(x) => x::t  // if anonymous function finds something to operate on, return the operater
+      case _ => h :: mapFirst(f)(t) // else call mapfirst with function and call it on the tail
     }
   }
   
@@ -238,7 +240,7 @@ object Lab4 extends jsy.util.JsyApplication {
     // (x1, T1) match type(e1) to T1
     
     def stepIfNotValue(e: Expr): Option[Expr] = if (isValue(e)) None else Some(step(e))
-    
+
     e match {
       /* Base Cases: Do Rules */
       case Print(v1) if isValue(v1) => println(pretty(v1)); Undefined
