@@ -4,10 +4,10 @@ object Lab4 extends jsy.util.JsyApplication {
   
   /*
    * CSCI 3155: Lab 4
-   * <Your Name>
+   * Josh Fermin
    * 
-   * Partner: <Your Partner's Name>
-   * Collaborators: <Any Collaborators>
+   * Partner: Yu Zhou
+   * Collaborators: Louis Bouddhou, Edward Zhu, Sheefali Tewari, Andrew Arnopoulus
    */
 
   /*
@@ -44,19 +44,15 @@ object Lab4 extends jsy.util.JsyApplication {
   }
   
   def compressFold[A](l: List[A]): List[A] = l.foldRight(Nil: List[A]){
-    (h, acc) => acc match { 
-      case Nil => h :: acc
-      case h1 :: t => h1 match {
-        case `h` => acc
-        case _ => h :: acc
-      }
-    }
+    (h, acc) => if(!acc.isEmpty && acc.head == h) { acc } else { h::acc }
+    // if tail is not empty and head is equal to h, then cut off head and return acc
+    // else append head to tail.
   }
   
   def mapFirst[A](f: A => Option[A])(l: List[A]): List[A] = l match {
     case Nil => l
     case h :: t => f(h) match {
-      case Some(x) => x::t  // if anonymous function finds something to operate on, return the operater
+      case Some(x) => x::t  // if anonymous function finds something to operate on, return the operator
       case _ => h :: mapFirst(f)(t) // else call mapfirst with function and call it on the tail
     }
   }
@@ -71,8 +67,12 @@ object Lab4 extends jsy.util.JsyApplication {
     
     def foldLeft[A](z: A)(f: (A, Int) => A): A = {
       def loop(acc: A, t: Tree): A = t match {
-        case Empty => throw new UnsupportedOperationException
-        case Node(l, d, r) => throw new UnsupportedOperationException
+        case Empty => acc
+        case Node(l, d, r) => {
+          val v1 = loop(acc, l)
+          val v2 = f(v1, d)
+          loop(v2, r)
+        }
       }
       loop(z, this)
     }
@@ -87,21 +87,24 @@ object Lab4 extends jsy.util.JsyApplication {
       p("", this, 0)
     }
   }
-  case object Empty extends Tree
-  case class Node(l: Tree, d: Int, r: Tree) extends Tree
-  
-  def treeFromList(l: List[Int]): Tree =
-    l.foldLeft(Empty: Tree){ (acc, i) => acc insert i }
-  
-  def sum(t: Tree): Int = t.foldLeft(0){ (acc, d) => acc + d }
-  
-  def strictlyOrdered(t: Tree): Boolean = {
-    val (b, _) = t.foldLeft((true, None: Option[Int])){
-      throw new UnsupportedOperationException
+
+  case object Empty extends Tree            
+  case class Node(l: Tree, d: Int, r: Tree) extends Tree            
+              
+  def treeFromList(l: List[Int]): Tree =            
+    l.foldLeft(Empty: Tree){ (acc, i) => acc insert i }            
+              
+  def sum(t: Tree): Int = t.foldLeft(0){ (acc, d) => acc + d }            
+              
+  def strictlyOrdered(t: Tree): Boolean = {            
+    val (b, _) = t.foldLeft((true, None: Option[Int])){            
+      (acc, h)  => acc match {            
+        case (b1, None) => (true, Some(h))            
+        case (b1, a) => (((a.get < h) && b1), Some(h))             
+      }
     }
     b
   }
-  
 
   /* Type Inference */
   
@@ -131,22 +134,41 @@ object Lab4 extends jsy.util.JsyApplication {
         case TNumber => TNumber
         case tgot => err(tgot, e1)
       }
-      case Unary(Not, e1) =>
-        throw new UnsupportedOperationException
-      case Binary(Plus, e1, e2) =>
-        throw new UnsupportedOperationException
-      case Binary(Minus|Times|Div, e1, e2) => 
-        throw new UnsupportedOperationException
-      case Binary(Eq|Ne, e1, e2) =>
-        throw new UnsupportedOperationException
-      case Binary(Lt|Le|Gt|Ge, e1, e2) =>
-        throw new UnsupportedOperationException
-      case Binary(And|Or, e1, e2) =>
-        throw new UnsupportedOperationException
+      case Unary(Not, e1) => typ(e1) match {
+        case TBool => TBool 
+        case tgot => err(tgot, e1)
+      }
+      case Binary(Plus, e1, e2) => (typ(e1), typ(e2)) match {
+        case (TString, TString) => TString
+        case (TNumber, TNumber) => TNumber
+        case _ => err(typ(e1),e1)
+      }
+      case Binary(Minus|Times|Div, e1, e2) => (typ(e1), typ(e2)) match {
+        case (TNumber, TNumber) => TNumber
+        case _ => err(typ(e1), e1)
+      }
+      case Binary(Eq|Ne, e1, e2) =>(typ(e1),typ(e2)) match{ 
+        case(e1type,_) if hasFunctionTyp(e1type)=> err(e1type, e1)
+        case(_,e2type) if hasFunctionTyp(e2type)=> err(e2type, e2)
+        case(e1type,e2type) if(e1type==e2type)=>TBool
+        case _ => err(typ(e1),e1)
+      }
+      case Binary(Lt|Le|Gt|Ge, e1, e2) =>(typ(e1),typ(e2)) match {
+        case(TNumber,TNumber) => TBool
+        case(TBool,TBool)=> TBool
+        case(TString,TString)=> TBool
+        case _=>err(typ(e1),e1) 
+      }
+      case Binary(And|Or, e1, e2) => (typ(e1),typ(e2)) match {
+        case(TBool, TBool) => TBool
+        case _ => err(typ(e1), e1)
+      }
       case Binary(Seq, e1, e2) =>
-        throw new UnsupportedOperationException
-      case If(e1, e2, e3) =>
-        throw new UnsupportedOperationException
+        typ(e2); typ(e1)
+      case If(e1, e2, e3) => typ(e1), typ(e2), typ(e3)) match {
+        case (TBool, e2type, e3type) =>  { if (e2type == e3type) e2type else err(e3type, e3) }
+        case(e1NotBool, _, _) => err(e1NotBool, e1)
+      }     
       case Function(p, params, tann, e1) => {
         // Bind to env1 an environment that extends env with an appropriate binding if
         // the function is potentially recursive.
@@ -161,13 +183,29 @@ object Lab4 extends jsy.util.JsyApplication {
         // fold left
         // x -env
         // y -current list element
-        val env2 = None
+        val env2 = params.foldLeft(env1) {
+          case (acc, (pName, pValue)) => acc + (pName -> pValue)
+        }
         // Match on whether the return type is specified.
         tann match {
-          case None => throw new UnsupportedOperationException
-          case Some(tret) => throw new UnsupportedOperationException
+          case None =>
+            
+          val tBody = typeInfer(env2, e1)
+            //tfunction will return a type function with the params originally passed in and the type of the body. 
+          TFunction(params, tBody)
+          case Some(tret) => {
+            val tBody = typeInfer(env2, e1)
+            val tBodyPrime = TFunction(params, tBody)
+            if (tBodyPrime != TFunction(params, tret))
+              err(tBody, e1)
+              
+              else TFunction(params, tret)
+          }
         }
       }
+      // ************************************************
+      // ************************************************
+      // ************************************************
       case Call(e1, args) => typ(e1) match {
         case TFunction(params, tret) if (params.length == args.length) => {
           (params, args).zipped.foreach {
