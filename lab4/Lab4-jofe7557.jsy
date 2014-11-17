@@ -1,2 +1,2 @@
-const f = {e: 4, d: function(x: number) { return x / 4 } }; f.d(f.e)
-jsy.print(f)
+const f = {e: 4, d: function(x: number) { return x / 4 } }; 
+jsy.print(f.d(f.e));

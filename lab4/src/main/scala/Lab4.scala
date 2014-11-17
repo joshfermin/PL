@@ -301,7 +301,9 @@ object Lab4 extends jsy.util.JsyApplication {
       case Binary(And, B(b1), e2) => if (b1) e2 else B(false)
       case Binary(Or, B(b1), e2) => if (b1) B(true) else e2
       case ConstDecl(x, v1, e2) if isValue(v1) => substitute(e2, v1, x)
-
+      // ************************************************
+      // ************************************************
+      // ************************************************
       case Call(v1, args) if isValue(v1) && (args forall isValue) =>
         v1 match {
           case Function(p, params, _, e1) => {
