@@ -279,9 +279,14 @@ object Lab4 extends jsy.util.JsyApplication {
   
   def step(e: Expr): Expr = {
     require(!isValue(e))
+
+    // args list of expressions
+    // params is a list of tuples
+
+    // (x1, T1) match type(e1) to T1
     
     def stepIfNotValue(e: Expr): Option[Expr] = if (isValue(e)) None else Some(step(e))
-    
+
     e match {
       /* Base Cases: Do Rules */
       case Print(v1) if isValue(v1) => println(pretty(v1)); Undefined
@@ -290,39 +295,20 @@ object Lab4 extends jsy.util.JsyApplication {
       case Binary(Seq, v1, e2) if isValue(v1) => e2
       case Binary(Plus, S(s1), S(s2)) => S(s1 + s2)
       case Binary(Plus, N(n1), N(n2)) => N(n1 + n2)
-      
-      case Binary(Minus, N(n1), N(n2)) => N(n1 - n2)
-      case Binary(Times, N(n1), N(n2)) => N(n1 * n2)
-      case Binary(Div, N(n1), N(n2)) => N(n1 / n2)
-      
       case Binary(bop @ (Lt|Le|Gt|Ge), v1, v2) if isValue(v1) && isValue(v2) => B(inequalityVal(bop, v1, v2))
       case Binary(Eq, v1, v2) if isValue(v1) && isValue(v2) => B(v1 == v2)
       case Binary(Ne, v1, v2) if isValue(v1) && isValue(v2) => B(v1 != v2)
       case Binary(And, B(b1), e2) => if (b1) e2 else B(false)
       case Binary(Or, B(b1), e2) => if (b1) B(true) else e2
       case ConstDecl(x, v1, e2) if isValue(v1) => substitute(e2, v1, x)
-      
-      case If(B(b1), e2, e3) => b1 match{
-        case (true) => e2
-        case (false) => e3
-      }
-      
-     case GetField(Obj(fields), f) => fields.get(f) match {
-           case Some(e1) => e1 
-        case None => throw new StuckError(e)
-      }
-      case GetField(e1, f) => GetField(step(e1), f)
-        
+
       case Call(v1, args) if isValue(v1) && (args forall isValue) =>
         v1 match {
           case Function(p, params, _, e1) => {
-  
             val e1p = (params, args).zipped.foldRight(e1){
-             
-              (myParams,acc)=> myParams match{
+               (myParams, acc)=> myParams match{
                 case((name,_),value) => substitute(acc,value,name)
               }
-              
             }
             p match {
               case None => e1p
@@ -332,10 +318,21 @@ object Lab4 extends jsy.util.JsyApplication {
           case _ => throw new StuckError(e)
         }
       /*** Fill-in more cases here. ***/
-      /* Inductive Cases: Search Rules */
+      case If(B(b1), e2, e3) => b1 match{
+        case (true) => e2
+        case (false) => e3
+      }
+      case GetField(Obj(fields), f) => fields.get(f) match {
+           case Some(e1) => e1 
+        case None => throw new StuckError(e)
+      }
+      case GetField(e1, f) => GetField(step(e1), f)
       case Call(v1,args) if isValue(v1)=> Call(v1, mapFirst(stepIfNotValue)(args))  
       case Call(e1,e2)=> Call(step(e1),e2)
-        
+      case Binary(Minus, N(n1), N(n2)) => N(n1 - n2)
+      case Binary(Times, N(n1), N(n2)) => N(n1 * n2)
+      case Binary(Div, N(n1), N(n2)) => N(n1 / n2)
+      /* Inductive Cases: Search Rules */
       case Print(e1) => Print(step(e1))
       case Unary(uop, e1) => Unary(uop, step(e1))
       case Binary(bop, v1, e2) if isValue(v1) => Binary(bop, v1, step(e2))
