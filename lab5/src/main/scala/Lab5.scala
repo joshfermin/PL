@@ -1,12 +1,12 @@
-object Lab5 extends jsy.util.JsyApplication {
+  object Lab5 extends jsy.util.JsyApplication {
   import jsy.lab5.ast._
   import jsy.lab5._
   
   /*
    * CSCI 3155: Lab 5
-   * <Your Name>
+   * Josh Fermin
    * 
-   * Partner: <Your Partner's Name>
+   * Partner: Alex Campbell
    * Collaborators: <Any Collaborators>
    */
 
