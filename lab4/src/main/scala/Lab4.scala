@@ -76,6 +76,11 @@ object Lab4 extends jsy.util.JsyApplication {
       }
       loop(z, this)
     }
+    // In-order (symmetric)[edit]
+    //   Traverse the left subtree by recursively calling the in-order function.
+    //   Display the data part of root element (or current element).
+    //   Traverse the right subtree by recursively calling the in-order function.
+
     
     def pretty: String = {
       def p(acc: String, t: Tree, indent: Int): String = t match {
@@ -98,10 +103,10 @@ object Lab4 extends jsy.util.JsyApplication {
               
   def strictlyOrdered(t: Tree): Boolean = {            
     val (b, _) = t.foldLeft((true, None: Option[Int])){            
-      (acc, h)  => acc match {            
-        case (b1, None) => (true, Some(h))            
-        case (b1, a) => (((a.get < h) && b1), Some(h))             
-      }
+      (acc, d) => acc match {
+          case (b1, None) => (b1, Some(d))
+          case (b2, nextInt) => (nextInt.get < d && b2, Some(d))
+        }
     }
     b
   }
@@ -191,7 +196,8 @@ object Lab4 extends jsy.util.JsyApplication {
           case None =>
             
           val tBody = typeInfer(env2, e1)
-            //tfunction will return a type function with the params originally passed in and the type of the body. 
+          // tfunction will return a type function with the 
+          // params originally passed in and the type of the body. 
           TFunction(params, tBody)
           case Some(tret) => {
             val tBody = typeInfer(env2, e1)
