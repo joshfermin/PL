@@ -152,7 +152,7 @@ object ast {
     override def toString: String = map.toString
   }
   object Mem {
-    def empty = new Mem(Map.empty, 1)
+    def empty = new Mem(Map.empty, 1) // want to start with empty memory
     def alloc(v: Expr): DoWith[Mem, A] = {
       for {
         m <- doget[Mem]

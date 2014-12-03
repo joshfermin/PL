@@ -15,3 +15,5 @@
 [0m[[0minfo[0m] [0m[31m  ...[0m[0m
 [0m[[0minfo[0m] [0m[32mDo Neg[0m[0m
 [0m[[0minfo[0m] [0m[32m- should negate values[0m[0m
+[0m[[0minfo[0m] [0m[32mDo Not[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give inverse[0m[0m

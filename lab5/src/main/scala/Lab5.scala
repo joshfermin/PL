@@ -7,7 +7,7 @@
    * Josh Fermin
    * 
    * Partner: Alex Campbell
-   * Collaborators: <Any Collaborators>
+   * Collaborators: Edward Zhu, Louis Bouddhou
    */
 
   /*
@@ -36,10 +36,10 @@
   
   // Just like mapFirst from Lab 4 but uses a callback f that returns a DoWith in the Some case.
   def mapFirstWith[W,A](f: A => Option[DoWith[W,A]])(l: List[A]): DoWith[W,List[A]] = l match {
-    case Nil => throw new UnsupportedOperationException
+    case Nil => new DoWith( w => (w,Nil:List[A]))
     case h :: t => f(h) match {
-      case None => throw new UnsupportedOperationException
-      case Some(withhp) => throw new UnsupportedOperationException
+      case None => mapFirstWith(f)(t).map(a => h :: a)
+      case Some(withhp) => withhp.map(a => a :: t)
     }
   }
 
@@ -230,7 +230,7 @@
   }
 
   /* A small-step transition. */
-  def step(e: Expr): DoWith[Mem, Expr] = {
+  def step(e: Expr): DoWith[Mem, Expr] = { // take expression return dowith
     require(!isValue(e), "stepping on a value: %s".format(e))
     
     /*** Helpers for Call ***/
@@ -356,7 +356,7 @@
       println("------------------------------------------------------------")
       println("Evaluating with step ...")
     }
-    val (m,v) = loop(e, 0)(Mem.empty)
+    val (m,v) = loop(e, 0)(Mem.empty) 
     if (debug) {
       println("Result:%n  %s%n  %s".format(m,v))
     }

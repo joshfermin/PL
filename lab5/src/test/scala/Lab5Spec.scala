@@ -12,13 +12,20 @@ class Lab5Spec extends FlatSpec {
      assertResult((42,gold1)) { dowith(42) }
   }
 
-
   "Do Neg" should "negate values" in {
   	val e = Unary(Neg, N(42))
-  	val (mp:Mem, ep:Expr) = step(e){ Mem.empty } // expectation
+  	val (mp:Mem, ep:Expr) = step(e)(Mem.empty) // expectation
   		// want to know that you went from empty memory -> empty memory
   		// <M , -n> -> <M , n'>
+  	assert(mp.isEmpty) // expect that nohing has changed therefore assert
   	assertResult(N(-42)) { ep } // ep = eprime
-  }	
+  }
+
+  "Do Not" should "give inverse" in {
+  	val e = Unary(Not, B(true))
+  	val (mp:Mem, ep:Expr) = step(e)(Mem.empty) // calling step with expression and empty memory
+  	assert(mp.isEmpty)
+  	assertResult(B(false)) { ep }
+  }
   // Probably want to write some tests for castOk, typeInfer, substitute, and step.
 }
