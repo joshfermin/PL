@@ -44,11 +44,23 @@
   }
 
   /*** Casting ***/
-  
   def castOk(t1: Typ, t2: Typ): Boolean = (t1, t2) match {
+    // if first type is null and second has a type, it is ok to cast first type to second type
     case (TNull, TObj(_)) => true
+    // if both are anything, and t1 = t2 types then return true
     case (_, _) if (t1 == t2) => true
-    case (TObj(fields1), TObj(fields2)) => throw new UnsupportedOperationException
+    // If fields1 is the fields of TObj i.e. like a person is Obj and name
+    // is in fields1. The rest of the attributes are folding left on fields1
+    // acc is the accumulation of all the booleans i.e. the recursion of castOk
+    // f1Typ and f2Typ is base case. 
+
+    // match on the keys in second match.
+    case (TObj(fields1), TObj(fields2)) => fields1.keys.foldLeft(true){
+        (acc, key) => (fields1.get(key), fields2.get(key)) match {
+          case (f1Typ, f2Typ) if(f1Typ == None || f2Typ == None) => acc && true 
+          case (Some(f1Typ), Some(f2Typ)) => acc && castOk(f1Typ, f2Typ)
+        }
+      }
     case (TInterface(tvar, t1p), _) => castOk(typSubstitute(t1p, t1, tvar), t2)
     case (_, TInterface(tvar, t2p)) => castOk(t1, typSubstitute(t2p, t2, tvar))
     case _ => false
@@ -67,6 +79,7 @@
     case PVar | PRef => MVar
   }
   
+
   def typeInfer(env: Map[String,(Mutability,Typ)], e: Expr): Typ = {
     def typ(e1: Expr) = typeInfer(env, e1)
     def err[T](tgot: Typ, e1: Expr): T = throw new StaticTypeError(tgot, e1, e)
@@ -178,6 +191,7 @@
       }
       
       /*** Fill-in more cases here. ***/
+      
         
       /* Should not match: non-source expressions or should have been removed */
       case A(_) | Unary(Deref, _) | InterfaceDecl(_, _, _) => throw new IllegalArgumentException("Gremlins: Encountered unexpected expression %s.".format(e))
@@ -310,7 +324,8 @@
       
       /*** Fill-in more Search cases here. ***/
 
-      /* Everything else is a stuck error. */
+
+      /* Everything else ifs a stuck error. */
       case _ => throw StuckError(e)
     }
   }

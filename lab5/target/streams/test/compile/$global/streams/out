@@ -1,10 +1,17 @@
+[0m[[0mdebug[0m] [0mThe jsy.lab5.ast$ source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m	isEmpty.[0m
+[0m[[0mdebug[0m] [0mAll member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0mFiles invalidated by inheriting from (external) jsy.lab5.ast$: Set(); now invalidating by inheritance (internally).[0m
+[0m[[0mdebug[0m] [0mGetting direct dependencies of all sources transitively invalidated by inheritance.[0m
+[0m[[0mdebug[0m] [0mGetting sources that directly depend on (external) jsy.lab5.ast$.[0m
+[0m[[0mdebug[0m] [0mNone of the modified names appears in /Users/joshfermin/Dropbox/PL/Assignments/lab5/src/test/scala/Lab5Spec.scala. This dependency is not being considered for invalidation.[0m
 [0m[[0mdebug[0m] [0m[0m
 [0m[[0mdebug[0m] [0mInitial source changes: [0m
 [0m[[0mdebug[0m] [0m	removed:Set()[0m
 [0m[[0mdebug[0m] [0m	added: Set()[0m
 [0m[[0mdebug[0m] [0m	modified: Set(/Users/joshfermin/Dropbox/PL/Assignments/lab5/src/test/scala/Lab5Spec.scala)[0m
 [0m[[0mdebug[0m] [0mRemoved products: Set()[0m
-[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set(NamesChange(jsy.lab5.ast$,ModifiedNames(regularNames = isEmpty, implicitNames = )))[0m
 [0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
 [0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/Users/joshfermin/Dropbox/PL/Assignments/lab5/src/test/scala/Lab5Spec.scala)[0m
 [0m[[0mdebug[0m] [0m[0m
@@ -17,18 +24,16 @@
 [0m[[0minfo[0m] [0mCompiling 1 Scala source to /Users/joshfermin/Dropbox/PL/Assignments/lab5/target/scala-2.10/test-classes...[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 3790130e, interfacing (CompilerInterface) with Scala compiler version 2.10.3[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 2a4de754, interfacing (CompilerInterface) with Scala compiler version 2.10.3[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
 [0m[[0mdebug[0m] [0m	/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/classes:/Users/joshfermin/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.3.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
 [0m[[0mdebug[0m] [0m	/Users/joshfermin/Dropbox/PL/Assignments/lab5/target/scala-2.10/test-classes:/Users/joshfermin/Dropbox/PL/Assignments/lab5/target/scala-2.10/classes:/Users/joshfermin/Dropbox/PL/Assignments/lab5/lib/liblab5.jar:/Users/joshfermin/Dropbox/PL/Assignments/lab5/lib/scalatest_2.10-2.0.jar[0m
-[0m[[31merror[0m] [0m/Users/joshfermin/Dropbox/PL/Assignments/lab5/src/test/scala/Lab5Spec.scala:20: value isEmpty is not a member of jsy.lab5.ast.Mem[0m
-[0m[[31merror[0m] [0m  	assert(mp.isEmpty) // expect that nohing has changed therefore assert[0m
-[0m[[31merror[0m] [0m  	          ^[0m
-[0m[[31merror[0m] [0m/Users/joshfermin/Dropbox/PL/Assignments/lab5/src/test/scala/Lab5Spec.scala:27: value isEmpty is not a member of jsy.lab5.ast.Mem[0m
-[0m[[31merror[0m] [0m  	assert(mp.isEmpty)[0m
-[0m[[31merror[0m] [0m  	          ^[0m
-[0m[[31merror[0m] [0mtwo errors found[0m
-[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
-[0m[[31merror[0m] [0m(lab5/test:[31mcompile[0m) Compilation failed[0m
+[0m[[0mdebug[0m] [0mScala compilation took 1.688528723 s[0m
+[0m[[0mdebug[0m] [0mNew invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mInitial set of included nodes: Set()[0m
+[0m[[0mdebug[0m] [0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mAll newly invalidated sources after taking into account (previously) recompiled sources:Set()[0m
