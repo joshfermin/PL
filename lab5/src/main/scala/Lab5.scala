@@ -191,8 +191,40 @@
       }
       
       /*** Fill-in more cases here. ***/
+      case Null => TNull
+
+      // if e1 is 5 and Unary Cast(t) is string then we castOk(typ(e1),t) i.e. check if e1 can be casted to string 
+      // checking if current expression e1 can be casted to certain type Cast(t)
+      case Unary(Cast(t), e1) if (castOk(typ(e1),t) && (t != TNull)) t else err(typ(e1),e1)
       
-        
+      // allows e1 to be mutable to two things i.e. int or bool.
+      // var x = 1 can be int or bool.
+
+      // map type1 to mutability class of x, calls type
+      // infer with updated environment on e2. If mutable onto environment will
+      // return boolean. 
+      case Decl(mut,x,e1,e2) => typeInfer(env + (x -> (mut,typ(e1))),e2)
+      
+      """
+      AssignVar var x will be in some type environment. var x = 2, 
+      e is now 2 is type of int. Therefore when x = 2 then it gets 
+      the type from e which is int. therefore x is int.
+      """
+      case Assign(e1,e2) => e1 match {
+        case Var(x) => env.get(x) match {
+          case Some((MVar, t)) => 
+            if (t == typ(e2)) typeInfer(env + (x->(MVar, typ(e2))), e2) 
+            else err(t, e2)
+          case Some((MConst, t)) => err(t, e2)
+          case _ => typeInfer(env + (x -> (MVar, typ(e2))), e2)
+        }
+        // get field is TypeAssignField. The only difference between this
+        // and TypeAssignVar is that each field gets assigned to some value
+        // i.e. Student.name = "Josh", 
+        case GetField(x1, f) => typeInfer(env + (f -> (MConst, typ(e1))), e2)
+        case _ => err(typ(e1),e2)
+      }
+
       /* Should not match: non-source expressions or should have been removed */
       case A(_) | Unary(Deref, _) | InterfaceDecl(_, _, _) => throw new IllegalArgumentException("Gremlins: Encountered unexpected expression %s.".format(e))
     }
