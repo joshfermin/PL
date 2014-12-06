@@ -169,8 +169,16 @@
         }
         // Bind to env2 an environment that extends env1 with the parameters.
         val env2 = paramse match {
-          case Left(params) => throw new UnsupportedOperationException
-          case Right((mode,x,t)) => throw new UnsupportedOperationException
+          // no mutability types i.e. cant be mutable -> constant
+          // m is param name, p is Mutability,Typ
+          case Left(params) => env1 ++ params.foldLeft(Map[String,(Mutability,Typ)]())((m,p) => {
+            m + (p._1 -> (MConst,p._2))
+          })
+          case Right((mode,x,t)) => mode match {
+            case PName => env1 + (x -> (MConst, t))
+            case PVar => env1 + (x -> (MVar, t))
+            case PRef => env1 + (x -> (MVar, t))
+          }
         }
         // Infer the type of the function body
         val t1 = typeInfer(env2, e1)
@@ -255,7 +263,8 @@
   /* Capture-avoiding substitution in e replacing variables x with esub. */
   def substitute(e: Expr, esub: Expr, x: String): Expr = {
     def subst(e: Expr): Expr = substitute(e, esub, x)
-    // avoids 
+    // avoidCapture - allows static scoping to not change global/free variables
+      // renames bound variables
     val ep: Expr = avoidCapture(freeVars(esub),e)
     ep match {
       case N(_) | B(_) | Undefined | S(_) | Null | A(_) => e

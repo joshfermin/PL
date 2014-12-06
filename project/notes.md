@@ -3,7 +3,7 @@
 
 # What is the problem?
   
-Cannot reference a variable in a higher order function (nested)
+Nested functions (including lambdas) can reference variables defined in the surrouding namespace
 
 Static scoping is good  
 
@@ -29,20 +29,7 @@ This allows for variables within the parent function to be inherited by the nest
 
 
 
-
-
-
-
-
-
-
-
 # Namespaces
-
-
-
-
-
 
 Whenever you run a simple Python script, the interpreter treats it as a module called __main__, which gets its own namespace. Also, the builtin functions that you would use live in another module called __builtin__ and 
 
