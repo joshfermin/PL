@@ -360,7 +360,7 @@
       case GetField(a @ A(_), f) => {
         doget.map((m: Mem) => m.get(a) match { // in memory get fields of object (i.e. key)
           case Some(Obj(fields)) => fields.get(f) match { // in object match on fields
-            case Some(f) => // if if field exist return value
+            case Some(f) => f // if if field exist return value
             case None => throw StuckError(e) // else throw stuckerror
           }
           case _ => throw StuckError(e)
@@ -412,9 +412,8 @@
       case Decl(MVar, x, v1, e2) if isValue(v1) => Mem.alloc(v1) map { a => substitute(e2, Unary(Deref, a), x) }
 
       // in new memory put address in value into that. i.e. dereference the pointer at A and then give value v.
-      case Assign(Unary(Deref, a @ A(_)), v) if isValue(v) =>
+      case Assign(Unary(Deref, addr @ A(_)), v) if isValue(v) =>
         for (_ <- domodify { (m: Mem) => (m+(addr,v)): Mem }) yield v
-      
 
 
       /*** Fill-in more Do cases here. ***/
@@ -433,6 +432,12 @@
       
       /* Base Cases: Error Rules */
       /*** Fill-in cases here. ***/
+       // for any expression in memory it maps it to the casted type with uop 
+      case Unary(Cast(_),e1) if (isValue(e1)) => doreturn(e1)
+      // apply maps keys to memory
+      case Unary(Deref,addr @ A(_)) => doget.map( (m: Mem) => m.apply(addr))
+
+
       
       /* Inductive Cases: Search Rules */
       case Print(e1) =>
@@ -468,11 +473,7 @@
       case Call(e1, e2) =>
         for (e1p <- step(e1)) yield Call(e1p, e2)
 
-      // for any expression in memory it maps it to the casted type with uop 
-      case Unary(Cast(_),e1) if (isValue(e1)) => doreturn(e1)
-      // apply maps keys to memory
-      case Unary(Deref,addr @ A(_)) => doget.map( (m: Mem) => m.apply(addr))
-      
+           
       /* Everything else ifs a stuck error. */
       case _ => throw StuckError(e)
     }
