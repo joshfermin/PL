@@ -46,6 +46,31 @@ Namespaces
 * Global
 * Builtin
 
+Local Namespace
+===============
+
+```python
+def function(num):
+    foo = num * num
+    return var
+
+function(2)
+```
+
+Global Namespace
+================
+
+```python
+bar = 10
+def function(num)
+    foo = bar * num
+    return foo
+function(2)
+```
+
+Builtin Namespace
+=================
+
 
 
 
@@ -62,6 +87,8 @@ Problems this PEP addresses: Utility
 =====================================
 * Limited utility of nested functions.
 
+Example
+=======
 ```python
 from Tkinter import *
 root = Tk()
@@ -73,6 +100,27 @@ Problems this PEP addresses: Non-lexical
 =========================================
 * Confusion among new users who are used to lexical scoping.
 
+Example
+=======
+```python
+
+def make_adder(base):
+  def adder(x):
+    return base + x
+  return adder
+add5 = make_adder(5)
+add5(6)
+
+``` 
+11
+
+
+Resolving Free Variables
+========================
+* Nested functions have access to variables in other scopes.
+
+Anonymous Functions
+===================
 
 
 
@@ -97,17 +145,14 @@ Problems this PEP addresses: Non-lexical
 
 Discussion
 ==========
-* The PEP works under all circumstances except for the following three cases:
+* The PEP works under all circumstances except for the following cases:
   1. Name in class scope is not accessible
   2. Global statement short-circuits the normal rules
-  3. Varibles are not declared.
-
 
 Discussion - Name in Class Scope
 ================================
 * Names in a class scope:
 * Resolved in the innermost (nested) function
-  * talk about why this is necessary
 
 Discussion - Short Circuit
 ==========================
@@ -117,17 +162,12 @@ Discussion - Short Circuit
 myvariable = 5
 def func():
     global myvariable
-    myvariable = 6   #changes global scope
+    myvariable = 6   #changes global var
     print myvariable #prints 6
 
 func()
 print myvariable  #prints 6
 ```
-
-Discussion - Variables Not Declared
-===================================
-* If variable name declared within a function, it is local to that function.
-* All references to that variable name refer to that function
 
 Problems - Backwards Compatibility
 =======================
@@ -135,7 +175,7 @@ Problems - Backwards Compatibility
   1. Code behavior
   2. Syntax errors
 
-Example
+Example - Code Behavior
 =======
 ```python
     x = 1
@@ -146,40 +186,16 @@ Example
         inner()
 ```
 
+Example - Syntax Errors
+=======
+``` python
+y = 1
+def f():
+    exec "y = 'gotcha'" # or from module import *
+    def g():
+        return y
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Conclusion
+==========
+* FILL THIS IN PLS
