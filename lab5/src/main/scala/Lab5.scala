@@ -374,19 +374,62 @@
           case Some(x) => substitute(e1, v1, x)
         }
         (v1, args) match {
+          case (Function(p, Left(params),_,e1), args) if (params.length == args.length) => {
+            val e1p = (params, args).zipped.foldRight(e1) {
+              (h, acc) => substitute(acc, h._2, h._1._1)
+            }
+            p match {
+              case None => doreturn(e1p)
+              case Some(x1) => doreturn(substitute(e1p, v1, x1))
+            }
+          }
+          /*** Fill-in the DoCall cases, the SearchCall2, the SearchCallVar, the SearchCallRef  ***/
+          case (Function(p, Right((PVar,x1,_)), _, e1),v2 :: Nil) if isValue(v2) => 
+          Mem.alloc(v2) map {a => substfun(substitute(e1, Unary(Deref, a), x1), p)}
+          
+          case (Function(p, Right((PVar, x1, _)), _, e1), e2 :: Nil) =>
+            step(e2) map {e2p => Call(v1, e2p :: Nil)}
+          
+          case (Function(p, Right((PRef,x1,_)), _, e1),lv2 :: Nil) if isLValue(lv2) => {
+          val e1p = substitute(e1, lv2, x1)
+          val e1pp = substfun(e1p, p)
+          doreturn(e1pp)
+          }
+          
+          case (Function(p, Right((PRef, x1, _)), _, e1), e2 :: Nil) =>
+            step(e2) map {e2p => Call(v1, e2p :: Nil)}
+          
+          case (Function(p, Right((PName, x1, _)), _, e1), e2 :: Nil) =>
+            doreturn(substfun(substitute(e1,e2,x1),p))
+
           /*** Fill-in the DoCall cases, the SearchCall2, the SearchCallVar, the SearchCallRef  ***/
           case _ => throw StuckError(e)
         } 
       
-      case Decl(MConst, x, v1, e2) if isValue(v1) =>
-        throw new UnsupportedOperationException
-      case Decl(MVar, x, v1, e2) if isValue(v1) =>
-        throw new UnsupportedOperationException
+      // since an mconst cant be changed therefore we can only substitute it with twhat it arleady is
+      case Decl(MConst, x, v1, e2) if isValue(v1) => doreturn(substitute(e2,v1,x))
+      // but with a variable it is mutable allocate memory from whatever type it changed to... i.e. int to string
+      case Decl(MVar, x, v1, e2) if isValue(v1) => Mem.alloc(v1) map { a => substitute(e2, Unary(Deref, a), x) }
 
+      // in new memory put address in value into that. i.e. dereference the pointer at A and then give value v.
       case Assign(Unary(Deref, a @ A(_)), v) if isValue(v) =>
-        for (_ <- domodify { (m: Mem) => (throw new UnsupportedOperationException): Mem }) yield v
-        
+        for (_ <- domodify { (m: Mem) => (m+(addr,v)): Mem }) yield v
+      
+
+
       /*** Fill-in more Do cases here. ***/
+      // 
+      case Assign(GetField(addr @ A(_), f), v) if isValue(v) =>
+        for( _ <- domodify { (m: Mem) => m.get(addr) match {  // get address of object 
+          // if there is some object add to memory the new address of the object with the new field
+          case Some(Obj(fields)) => m + (addr -> Obj(fields + (f-> (v))))
+          case None => m // if there is no object just keep memory the same
+          case _ => throw StuckError(e)
+          }
+        }) yield v
+
+
+
       
       /* Base Cases: Error Rules */
       /*** Fill-in cases here. ***/
@@ -402,19 +445,34 @@
         for (e1p <- step(e1)) yield Binary(bop, e1p, e2)
       case If(e1, e2, e3) =>
         for (e1p <- step(e1)) yield If(e1p, e2, e3)
+      // Objects have different fields i.e. name:String
+      // add to obj field: var home = Address("Bogus St.", 12345, "Pocus","Hocus")
       case Obj(fields) => fields find { case (_, ei) => !isValue(ei) } match {
-        case Some((fi,ei)) =>
-          throw new UnsupportedOperationException
+        case Some((fi,ei)) => for (eip <- step(ei)) yield Obj(fields + (fi -> eip))
         case None => throw StuckError(e)
       }
-      case GetField(e1, f) => throw new UnsupportedOperationException
+
+
+      case GetField(e1, f) => 
+        if(e1==Null) throw new NullDereferenceError(e1) // if you field is null
+        else for (e1p <- step(e1)) yield GetField(e1p, f) // else step into 
       
       /*** Fill-in more Search cases here. ***/
-      // since an mconst cant be changed therefore we can only substitute it with twhat it arleady is
-      case Decl(MConst, x, v1, e2) if isValue(v1) => doreturn(substitute(e2,v1,x))
-      // but with a variable it is mutable i.e. allocate from int to string
-      case Decl(MVar, x, v1, e2) if isValue(v1) => Mem.alloc(v1) map { a => substitute(e2, Unary(Deref, a), x) }
 
+      case Decl(mut, x, e1, e2) => {
+        for (e1p <- step(e1)) yield Decl(mut, x, e1p, e2)
+      }
+      
+      case Assign(e1, e2) => if (isLValue(e1)) {for (e2p <- step(e2)) yield Assign(e1, e2p)} else {for (e1p <-step(e1)) yield Assign(e1p, e2)}
+        
+      case Call(e1, e2) =>
+        for (e1p <- step(e1)) yield Call(e1p, e2)
+
+      // for any expression in memory it maps it to the casted type with uop 
+      case Unary(Cast(_),e1) if (isValue(e1)) => doreturn(e1)
+      // apply maps keys to memory
+      case Unary(Deref,addr @ A(_)) => doget.map( (m: Mem) => m.apply(addr))
+      
       /* Everything else ifs a stuck error. */
       case _ => throw StuckError(e)
     }
