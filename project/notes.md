@@ -3,11 +3,15 @@
 
 # What is the problem?
   
-Nested functions (including lambdas) can reference variables defined in the surrouding namespace
+Nested functions (including lambdas) can reference variables defined in the surrouding namespace.
 
-Static scoping is good  
+Static scoping is already implemented between functions, but not within nested functions.
 
-# Example
+Example - Without Statically Nested Scopes
+========
+
+Why this wouldn't work
+
 
 ```python
  def bank_account(initial_balance):
@@ -30,6 +34,7 @@ This allows for variables within the parent function to be inherited by the nest
 
 
 # Namespaces
+============
 
 Whenever you run a simple Python script, the interpreter treats it as a module called __main__, which gets its own namespace. Also, the builtin functions that you would use live in another module called __builtin__ and 
 

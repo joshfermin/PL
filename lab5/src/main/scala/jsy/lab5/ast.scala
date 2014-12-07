@@ -258,8 +258,7 @@ object ast {
     case TObj(tfields) =>
       val pretty_fields: Option[String] =
         tfields map { case (f,t) => "%s: %s".format(f, pretty(t)) } reduceRightOption {
-          (s, acc) =
-          > s + "; " + acc
+          (s, acc) => s + "; " + acc
         }
       "{ %s }".format(pretty_fields.getOrElse(""))
     case TNull => "Null"

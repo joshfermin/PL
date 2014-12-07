@@ -170,10 +170,17 @@
         // Bind to env2 an environment that extends env1 with the parameters.
         val env2 = paramse match {
           // no mutability types i.e. cant be mutable -> constant
-          // m is param name, p is Mutability,Typ
+            // m is accumulator map
+            // p._1 is string
+            // p._2 is tuple with mutability type
+            // m = parameter
+            // p = table of mutability and type 
+          // Left assumes that it is constant
           case Left(params) => env1 ++ params.foldLeft(Map[String,(Mutability,Typ)]())((m,p) => {
             m + (p._1 -> (MConst,p._2))
           })
+          // Changing mutability based on mode. and then from there it will add
+          // directly on env.
           case Right((mode,x,t)) => mode match {
             case PName => env1 + (x -> (MConst, t))
             case PVar => env1 + (x -> (MVar, t))
@@ -186,15 +193,21 @@
         TFunction(paramse, t1)
       }
       
+      // make sure types of the arguments are matching the types of paramters
+      // if function takes in a string want call to have a string.
       case Call(e1, args) => typ(e1) match {
         case TFunction(Left(params), tret) if (params.length == args.length) => {
           (params, args).zipped.foreach {
-            throw new UnsupportedOperationException
+            case ((key, value), args) => 
+              val argTyp = typ(args)
+              if (value == argTyp) value else err(argTyp, args)
           }
           tret
         }
-        case tgot @ TFunction(Right((mode,_,tparam)), tret) =>
-          throw new UnsupportedOperationException
+        case tgot @ TFunction(Right((mode,_,tparam)), tret) => if (args.length == 0) err(tparam, e1) else mode match {
+          case (PName | PVar) => if (tparam == typ(args.head)) tparam else err(tparam, e1)
+          case PRef => if (isLExpr(args.head) && (tparam == typ(args.head))) tret else err(tparam, e1)
+        }
         case tgot => err(tgot, e1)
       }
       
@@ -274,8 +287,29 @@
       case If(e1, e2, e3) => If(subst(e1), subst(e2), subst(e3))
       case Var(y) => if (x == y) esub else e
       case Decl(mut, y, e1, e2) => Decl(mut, y, subst(e1), if (x == y) e2 else subst(e2))
-      case Function(p, paramse, retty, e1) =>
-        throw new UnsupportedOperationException
+      // check checking if one the parameter names 
+      // is the name of variables you are substituting for
+
+      case Function(p, Left(params), retty, e1) => p match {
+        // if there is some function name 
+        // matching on wildcard of function name
+        // don't use global variables
+        // if param name is same name as arg dont substitue.
+        case Some(p) => 
+          val check = params.foldLeft(true){(acc, h) => if (x != h._1 && x != p) acc && true else acc && false}
+        if (check) Function(Some(p), Left(params), retty, subst(e1)) else e
+        case None => 
+          val check = params.foldLeft(true){(acc, h) => if (x != h._1) acc && true else acc && false}
+          if(check) Function(None, Left(params), retty, subst(e1)) else e
+      }
+      case Function(p, Right((mode, s, t)), retty, e1) => p match {
+        case Some(z) =>
+          val e1Sub = if ((x != s) && (x != z)) subst(e1) else e1
+          Function(p, Right((mode, s, t)), retty, e1Sub)
+        case None =>
+          val e1Sub = if (x != s) subst(e1) else e1
+          Function(None, Right((mode, s, t)), retty, e1Sub)
+      }
       case Call(e1, args) => Call(subst(e1), args map subst)
       case Obj(fields) => Obj(fields map { case (fi,ei) => (fi, subst(ei)) })
       case GetField(e1, f) => GetField(subst(e1), f)
@@ -317,10 +351,22 @@
       case Binary(Times, N(n1), N(n2)) => doreturn( N(n1 * n2) )
       case Binary(Div, N(n1), N(n2)) => doreturn( N(n1 / n2) )
       case If(B(b1), e2, e3) => doreturn( if (b1) e2 else e3 )
-      case Obj(fields) if (fields forall { case (_, vi) => isValue(vi)}) =>
-        throw new UnsupportedOperationException
-      case GetField(a @ A(_), f) =>
-        throw new UnsupportedOperationException
+      // for all fields and values f:v they map to a.
+      // allocate memory for each field of each instance of object. 
+      case Obj(fields) if (fields forall { case (_, vi) => isValue(vi)}) => {
+        Mem.alloc(Obj(fields)) map {(a:A) => a:Expr}
+      }
+      // for Person.name get Josh
+      case GetField(a @ A(_), f) => {
+        doget.map((m: Mem) => m.get(a) match { // in memory get fields of object (i.e. key)
+          case Some(Obj(fields)) => fields.get(f) match { // in object match on fields
+            case Some(f) => // if if field exist return value
+            case None => throw StuckError(e) // else throw stuckerror
+          }
+          case _ => throw StuckError(e)
+        }  
+        )
+      }
         
       case Call(v1, args) if isValue(v1) =>
         def substfun(e1: Expr, p: Option[String]): Expr = p match {
@@ -344,7 +390,7 @@
       
       /* Base Cases: Error Rules */
       /*** Fill-in cases here. ***/
-        
+      
       /* Inductive Cases: Search Rules */
       case Print(e1) =>
         for (e1p <- step(e1)) yield Print(e1p)
@@ -364,7 +410,10 @@
       case GetField(e1, f) => throw new UnsupportedOperationException
       
       /*** Fill-in more Search cases here. ***/
-
+      // since an mconst cant be changed therefore we can only substitute it with twhat it arleady is
+      case Decl(MConst, x, v1, e2) if isValue(v1) => doreturn(substitute(e2,v1,x))
+      // but with a variable it is mutable i.e. allocate from int to string
+      case Decl(MVar, x, v1, e2) if isValue(v1) => Mem.alloc(v1) map { a => substitute(e2, Unary(Deref, a), x) }
 
       /* Everything else ifs a stuck error. */
       case _ => throw StuckError(e)
