@@ -9,7 +9,7 @@ console.log(Alex.Age)
 console.log(Alex.Name)
 console.log(Alex.stateName + "," + Alex.cityName)
 
-var Josh = Person("JOSH", 12345, "Parker", "Colorado")
+var Josh = Person("JOSH", 20, "Parker", "Colorado")
 console.log(Josh.Age)
 console.log(Josh.Name)
 console.log(Josh.stateName + "," + Josh.cityName)
