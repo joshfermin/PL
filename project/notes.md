@@ -71,33 +71,46 @@ Example
 Namespaces
 ==========
 
-Whenever you run a simple Python 2.1 script, the interpreter treats it as a module called __main__, which gets its own namespace. However, in order to avoid ambiguity, Python stores names in the context they're supposed to live in. Those contexts are called namespaces and there are three of them. A local namespace, a Global namespace and a Builtin namespace.
+* Whenever you run a simple Python 2.1 script, the interpreter treats it as a module called __main__, which gets its own namespace. However, in order to avoid ambiguity, Python stores names in the context they're supposed to live in. Those contexts are called namespaces and there are three of them. A local namespace, a Global namespace and a Builtin namespace.
 
 Local Namespace
 ===============
 
-The local namespace for a function is created when the function is called, and deleted (or forgotten) when the function returns or raises an exception that is not handled by a function.
+* The local namespace for a function is created when the function is called, and deleted (or forgotten) when the function returns or raises an exception that is not handled by a function.
 
 Global Namespace
 ================
 
-The global namespace specific to the current module is created as soon as the interpreter starts. Obviously we want to make sure that any nested subroutine in the function can see names living outside of ther local namespace but in the module.
+* The global namespace specific to the current module is created as soon as the interpreter starts. Obviously we want to make sure that any nested subroutine in the function can see names living outside of ther local namespace but in the module.
 
 Builtin Namespace
 =================
 
-The name
+* The built-in namespace is the outermost scope (which is searched last). This scope scope contains all the built-in names and functions of Python. Naturally, we want to be able to catch buitl-in names from scope whether local or global. 
+* Looking at the "list" name which will be found in the builtin namespace of Python.
+
+
+Bounds
+======
+
+* If a name is bound anywhere within a code block, all uses of the name within the block are treated as references to the current block. 
+* Note: This can lead to errors when a name is used within a block before it is bound.
+
+Name Search
+===========
+
+* If a global name happens in a block, all uses of that name  refer to the binding of that name in the top-level namespace. 
+* Names are resolved in the top-level namespace by searching the global namespace, and in the builtin namespace.
+* The global namespace is searched first. If the name is not found there, the builtin namespace is searched. The global statement must precede all uses of the name. 
+
+* Looking at the code, we can see that the name "list" will be looked up first in the local namespace of the function and then looked from outside, in the global namespace, then the builtin namespace.
 
 
 
-Resolving Free Variables
-========================
-
-* Free variables are variables used in a function that are not local variables nor parameters of that function.  With this pep, variables in outer scopes are not free, they are bound to the current functions scope.
-
-
-
-
+(((((((
+	If a name is used within a code block, but it is not bound there and is not declared global, the use is treated as a reference to the nearest enclosing function region. 
+	* Note: If a region is contained within a class definition, the name bindings that occur in the class block are not visible to enclosed functions. 
+)))))))
 
 
 
@@ -113,10 +126,9 @@ Resolving Free Variables
 
 Discussion
 ==========
-* The PEP  allow names defined in a function to be referenced in any nested function defined with that function, these rules apply except for the following 3:
-  1. Name in class scope is not accessible
+* The changes introduced by this PEP work under all circumstances except for the following cases:
+  1. The name in class scope
   2. Global statement short-circuits the normal rules
-  3. Varibles are not declared.
 
 
 Discussion - Name in Class Scope
@@ -130,20 +142,18 @@ http://stackoverflow.com/questions/12941748/python-variable-scope-and-classes
 
 Discussion - Short Circuit
 ==========================
-* The rule that Python chooses is: any assignment within a block establishes a new local binding, unless a global statement for the name appears in the block, in which case the name always refers to a binding in the module-global environment instead.
-
+* When the global keyword is used, the name declared by that keyword will bind to the global namespace instead of the local namespace (which it would have been bound to under this PEP's rules).
+* This can be seen from the example below which allows x to refer to global namespace
 ```python
-myvariable = 5
+x = 5
 def func():
-    global myvariable
-    myvariable = 6   #changes global scope
-    print myvariable #prints 6
+    global x
+    x = 6   #changes global scope
+    print x #prints 6
 
 func()
-print myvariable  #prints 6
+print x  #prints 6
 ```
-http://stackoverflow.com/questions/13881395/in-python-what-is-a-global-statement
-https://www.farside.org.uk/201307/understanding_python_scope
 
 Discussion - Variables Not Declared
 ===================================

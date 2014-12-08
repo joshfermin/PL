@@ -62,6 +62,8 @@ add5(6)
 
 
 
+
+
 Resolving Free Variables
 ========================
 * Nested functions have access to variables in other scopes.
@@ -73,7 +75,7 @@ Namespaces
 * Global
 * Builtin
 
-Local &  Namespace
+Local Namespace
 ==================
 
 * Local Namespace
@@ -99,9 +101,42 @@ function(2)
 Builtin Namespace
 =================
 
+```python
+def function(num)
+    myList = list()
+        for n in list:
+            n = n * num
+    return list
 
+function(2)
+```
 
+Bounds
+======
 
+```python
+
+def function(num)
+    foo = bar * num
+    return foo
+function(2)
+
+bar = 10
+```
+
+Name Search
+===========
+
+```python
+myList = list([1,2,3])
+print myList
+def function(num):
+  list = myList
+  for x in range(0,len(list)):
+    list[x] = list[x] * num
+  return list # [2,4,6]
+function(2)
+```
 
 
 
@@ -192,6 +227,9 @@ def f():
 
 Conclusion
 ==========
-* FILL THIS IN PLS
+* Changes in the pep are beneficial even though nested scopes aren't used that often.
+* Only problems lie in backwards compatibility.
+
+
 
 
