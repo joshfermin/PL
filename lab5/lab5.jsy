@@ -14,7 +14,7 @@ console.log(Josh.Age)
 console.log(Josh.Name)
 console.log(Josh.stateName + "," + Josh.cityName)
 
-Josh.Name = "other dood"
+Josh.Name = "NICKNAME"
 Josh.Age = 15
 Josh.cityName = "Boulder"
 Josh.stateName = "Colorado"
