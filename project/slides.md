@@ -91,23 +91,23 @@ Global Namespace
 
 ```python
 bar = 10
-def function(num)
+def global(num)
     foo = bar * num
     return foo
-function(2)
+global(2)
 ```
 
 Builtin Namespace
 =================
 
 ```python
-def function(num)
+def builtin(num)
     myList = list()
         for n in list:
             n = n * num
     return list
 
-function(2)
+builtin(2)
 ```
 
 Bounds
