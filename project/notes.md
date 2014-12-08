@@ -167,9 +167,8 @@ Example - Code Behavior
             print x
         inner()
 ```
-* before this PEP it would print  because the inner scope would not get the scope of the f1 function.
+* before this PEP it would print 1 because the inner scope would not get the scope of the f1 function.
 * after this PEP it prints 2, therefore changing the behavior of code.
-
 
 Example - Syntax Errors
 =======
