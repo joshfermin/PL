@@ -1,16 +1,23 @@
-/* Test 1 */
-var x1 = 1
-jsy.print(x1)
+interface Person {Name:string;Age:number;cityName:string;stateName:string}
 
-/* Test 2 */
-var x2 = 1
-var y2 = 2
-var z2 = x2 + y2
-jsy.print(z2)
+const Person = function(sname:string,snumber:number,cname:string,stname:string){
+        return {Name:sname,Age:snumber,cityName:cname,stateName:stname}
+};
 
-/* Test 3 */
-function (x3: number, y3: string) { return 1 }(1, 'asdf')
+var Alex = Person("ALEX CAMPBELl", 21, "Boulder", "Colorado")
+console.log(Alex.Age)
+console.log(Alex.Name)
+console.log(Alex.stateName + "," + Alex.cityName)
 
-/* Test 4 */
-interface myObj4 {n:number; b:bool}
-var x4 = {n:5, b: null}
+var Josh = Person("JOSH", 12345, "Parker", "Colorado")
+console.log(Josh.Age)
+console.log(Josh.Name)
+console.log(Josh.stateName + "," + Josh.cityName)
+
+Josh.Name = "other dood"
+Josh.Age = 15
+Josh.cityName = "Boulder"
+Josh.stateName = "Colorado"
+console.log(Josh.Age)
+console.log(Josh.Name)
+console.log(Josh.stateName + "," + Josh.cityName)
