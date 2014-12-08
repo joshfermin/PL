@@ -63,9 +63,9 @@ add5(6)
 
 
 
-Resolving Free Variables
-========================
-* Nested functions have access to variables in other scopes.
+
+
+
 
 Namespaces
 ========== 
