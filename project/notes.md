@@ -126,7 +126,7 @@ Name Search
 
 Discussion
 ==========
-* The changes introduced by this PEP work under all circumstances except for the following cases:
+* The rule that nested functions can use variables declared in the surrounding namespace works under all conditions except for the following:
   1. The name in class scope
   2. Global statement short-circuits the normal rules
 
@@ -142,7 +142,7 @@ http://stackoverflow.com/questions/12941748/python-variable-scope-and-classes
 
 Discussion - Short Circuit
 ==========================
-* When the global keyword is used, the name declared by that keyword will bind to the global namespace instead of the local namespace (which it would have been bound to under this PEP's rules).
+* When the global keyword is used, the name declared by that keyword will bind to the global namespace instead of the local namespace 
 * This can be seen from the example below which allows x to refer to global namespace
 ```python
 x = 5
@@ -155,17 +155,11 @@ func()
 print x  #prints 6
 ```
 
-Discussion - Variables Not Declared
-===================================
-* Name bindings are local to the function that they are bound in.
-* The only declaration of a variable is the global declaration
-* This makes it so that assignment operations can only happen in current scope or global scope
-
 Problems - Backwards Compatibility
 =======================
 * Two kinds of compatibility problems caused:
-  1. Code behavior
-  2. Syntax errors
+  1. Differences in code behavior before and afer the change
+  2. Syntax errors being caused after the change
 
 Example - Code Behavior
 =======
@@ -177,6 +171,7 @@ Example - Code Behavior
             print x
         inner()
 ```
+* This piece of code shows how the code behavior changed:
 * before this PEP it would print 1 because the inner scope would not get the scope of the f1 function.
 * after this PEP it prints 2, therefore changing the behavior of code.
 
@@ -189,10 +184,14 @@ def f():
     def g():
         return y
 ```
-* at compile-time the compiler doesnt know if exec 
+* This example shows why some code will throw syntax errors 
+* This code will through a syntax error after the change because the function g will not know which y to refer to... Either the global y variable or the local y. 
 
 
-
+Conclusion
+==========
+* Changes in the pep are beneficial even though nested scopes aren't used that often.
+* Only problems lie in backwards compatibility.
 
 
 
