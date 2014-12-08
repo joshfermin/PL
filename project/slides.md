@@ -52,7 +52,6 @@ add5 = make_adder(5)
 add5(6)
 
 ``` 
-11
 
 
 
@@ -175,7 +174,7 @@ function(2)
 Discussion
 ==========
 * The PEP works under all circumstances except for the following cases:
-  1. Name in class scope is not accessible
+  1. Name in class scope
   2. Global statement short-circuits the normal rules
 
 Discussion - Name in Class Scope
@@ -229,7 +228,5 @@ Conclusion
 ==========
 * Changes in the pep are beneficial even though nested scopes aren't used that often.
 * Only problems lie in backwards compatibility.
-
-
 
 
