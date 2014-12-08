@@ -14,73 +14,13 @@ Example - Without Statically Nested Scopes
       def deposit(amount):
           balance[0] = balance[0] + amount
           return balance
-      def withdraw(amount):
-          balance[0] = balance[0] - amount
-          return balance
-      return deposit, withdraw
+      return deposit
 ``` 
 
 Introduced changes in this PEP
 ==============================
-* Gives nested functions the scope of parent functions.
+* Gives nested functions the scope of outer functions.
 * This allows for variables within the parent function to be inherited by the nested function.
-
-Example - With Statically Nested Scopes
-=======================================
-```python
- def bank_account(initial_balance):
-      balance = [initial_balance]
-      def deposit(amount):
-          balance[0] = balance[0] + amount
-          return balance
-      def withdraw(amount):
-          balance[0] = balance[0] - amount
-          return balance
-      return deposit, withdraw
-``` 
-
-Namespaces
-========== 
-
-* Local
-* Global
-* Builtin
-
-Local Namespace
-===============
-
-```python
-def function(num):
-    foo = num * num
-    return var
-
-function(2)
-```
-
-Global Namespace
-================
-
-```python
-bar = 10
-def function(num)
-    foo = bar * num
-    return foo
-function(2)
-```
-
-Builtin Namespace
-=================
-
-
-
-
-
-
-
-
-
-
-
 
 
 Problems this PEP addresses: Utility
@@ -115,12 +55,66 @@ add5(6)
 11
 
 
+
+
+
+
+
+
+
 Resolving Free Variables
 ========================
 * Nested functions have access to variables in other scopes.
 
-Anonymous Functions
-===================
+Namespaces
+========== 
+
+* Local
+* Global
+* Builtin
+
+Local &  Namespace
+==================
+
+* Local Namespace
+```python
+def function(num):
+    foo = num * num
+    return var
+
+function(2)
+```
+
+Global Namespace
+================
+
+```python
+bar = 10
+def function(num)
+    foo = bar * num
+    return foo
+function(2)
+```
+
+Builtin Namespace
+=================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -199,3 +193,5 @@ def f():
 Conclusion
 ==========
 * FILL THIS IN PLS
+
+

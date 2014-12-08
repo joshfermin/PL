@@ -2,10 +2,10 @@
 % Louis Bouddhou, Alex Campbell, Josh Fermin
 
 What is the problem?
-  
-Nested functions (including lambdas) can reference variables defined in the surrouding namespace.
+===================  
+* Nested functions (including lambdas) can reference variables defined in the surrouding namespace.
 
-Static scoping is already implemented between functions, but not within nested functions.
+* Static scoping is already implemented between functions, but not within nested functions.
 
 Example - Without Statically Nested Scopes
 ========
@@ -25,32 +25,11 @@ Why this wouldn't work
       return deposit, withdraw
 ``` 
 
-# Introduced changes in this PEP
+Introduced changes in this PEP
+=================================
+* Gives nested functions the scope of parent functions.
 
-Gives nested functions the scope of parent functions.
-
-This allows for variables within the parent function to be inherited by the nested function.
-
-
-
-Namespaces
-==========
-
-Whenever you run a simple Python 2.1 script, the interpreter treats it as a module called __main__, which gets its own namespace. However, in order to avoid ambiguity, Python stores names in the context they're supposed to live in. Those contexts are called namespaces and there are three of them. A local namespace, a Global namespace and a Builtin namespace.
-
-Local Namespace
-===============
-
-The local namespace for a function is created when the function is called, and deleted (or forgotten) when the function returns or raises an exception that is not handled by a function.
-
-Global Namespace
-================
-
-The global namespace for a module is created as soon as the interpreter starts. Obviously we want to make sure that any nested subroutine in the function can see names living outside of ther local namespace.e
-
-Builtin Namespace
-=================
-
+* This allows for variables within the parent function to be inherited by the nested function.
 
 Problems this PEP addresses: Utility
 ====================================
@@ -68,7 +47,48 @@ Problems this PEP addresses: Non-lexical
 
 Example
 =======
-* If we come back to our previous example, we can see 
+* Now if we look at a new example, this should work with the pep implemented.
+
+* If we did not have lexical scoping, adder would not know what 'base' was. With the addition of this pep, it will work and return 11. Most developers would expect this to happen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+==========
+
+Whenever you run a simple Python 2.1 script, the interpreter treats it as a module called __main__, which gets its own namespace. However, in order to avoid ambiguity, Python stores names in the context they're supposed to live in. Those contexts are called namespaces and there are three of them. A local namespace, a Global namespace and a Builtin namespace.
+
+Local Namespace
+===============
+
+The local namespace for a function is created when the function is called, and deleted (or forgotten) when the function returns or raises an exception that is not handled by a function.
+
+Global Namespace
+================
+
+The global namespace specific to the current module is created as soon as the interpreter starts. Obviously we want to make sure that any nested subroutine in the function can see names living outside of ther local namespace but in the module.
+
+Builtin Namespace
+=================
+
+The name
+
+
 
 Resolving Free Variables
 ========================
@@ -160,6 +180,7 @@ def f():
     def g():
         return y
 ```
+* at compile-time the compiler doesnt know if exec 
 
 
 
