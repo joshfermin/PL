@@ -79,11 +79,11 @@ Local Namespace
 
 * Local Namespace
 ```python
-def function(num):
+def local(num):
     foo = num * num
     return var
 
-function(2)
+local(2)
 ```
 
 Global Namespace
