@@ -5,6 +5,7 @@ def f():
 	print x
 f()
 
+
 # myList = list([1,2,3])
 # print myList
 # def function(num):

@@ -115,7 +115,7 @@ Bounds
 
 ```python
 
-def function(num)
+def bound(num)
     foo = bar * num
     return foo
 function(2)
